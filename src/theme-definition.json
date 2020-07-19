@@ -1,0 +1,19 @@
+{
+    "name": "Webpress",
+    "folder": "webpress",
+    "root": "bhaa-root",
+    "menus" : [
+        "main", 
+        "secondary"
+    ],
+    "sidebar" : [
+        {
+            "name" : "Main Sidebar",
+            "id": "sidebar-main",
+            "description": "The main sidebar for the WebPress starter theme"
+        }
+    ],
+    "themeSupport": [
+        "post-thumbnails"
+    ]
+}

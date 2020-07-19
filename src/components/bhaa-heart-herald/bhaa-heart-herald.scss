@@ -1,0 +1,14 @@
+
+bhaa-heart-herald {
+    display: inline-block;
+    width: 200px;
+    max-width: 400px;
+    box-sizing: border-box;
+    img {
+        width: 48%;
+        height: auto;
+        &:first-child {
+            margin-right: 4%;
+        }
+    }
+}

@@ -1,0 +1,80 @@
+
+bhaa-footer {
+    
+    > div {
+        width: 100%;
+        background: #262626;
+        color: #E3ECF3;
+        box-sizing: border-box;
+        padding: 48px 20px 85px;
+        bhaa-heart-herald {
+            width: 46px;
+            padding-right: 6px;
+            position: relative;
+            top: 3px;
+        }
+        position: relative;
+    }
+    menu {
+        position: absolute;
+        bottom: 0;
+        list-style-type: none;
+        display: inline-block;
+        text-align: center;
+        width: 100%;
+        font-family: "Whitney Narrow SSm A", "Whitney Narrow SSm B";
+        left: 0;
+        li {
+            display: inline-block;
+            a {
+                color: white;
+                font-weight: 600;
+                text-decoration: none;
+                font-size: 1.0em;
+                display: inline-block;
+                padding: 8px 12px;
+                margin: 0 2px;
+            }
+            &.active a {
+                background: rgba(#E3ECF3,1);
+                color: #262626;
+            }
+            &:not(.active):not(.donate) a:hover {
+                background: rgba(#E3ECF3,.2);
+                color: #55ACEE;
+            }
+            &.donate a {
+                background: #55ACEE;
+                color: white;
+            }
+            &.donate a:hover {
+                background: rgb(68, 142, 199);
+            }
+        }
+    }
+}
+
+@media (min-width: 500px) {
+    bhaa-header {
+        header {
+            h2 {
+                font-size: 1.3em;
+            } 
+            h1 {
+                font-size: 2.4em;
+            }
+            bhaa-heart-herald {
+                width: 100px;
+            }
+        }
+        menu {
+            li {
+                a {
+                    font-size: 1.2em;
+                    padding: 8px 20px;
+                }
+            }
+        }
+    }
+    
+}
