@@ -11,11 +11,11 @@ services:
       - 80:80
       - 443:443
     volumes:
-      - support.badgerherald.org-wordpress:/var/www/html 
+      - support.badgerherald.org-wordpress:/var/www/html
       - ./bin/wp-content:/var/www/html/wp-content/
       - ./${WORDPRESS_UPLOADS_DIR}:/var/www/html/wp-content/uploads
     restart: always
-    environment: 
+    environment:
       DOMAIN: ${SITE_URL}
 
   wordpress:
@@ -26,7 +26,7 @@ services:
     expose:
       - 80
     restart: always
-    volumes: 
+    volumes:
       - support.badgerherald.org-wordpress:/var/www/html
       - ./bin/wp-content/themes:/var/www/html/wp-content/themes/
     environment:
@@ -62,13 +62,13 @@ services:
     restart: always
     expose:
       - 3306
-    environment: 
+    environment:
       MYSQL_ROOT_PASSWORD: ${WORDPRESS_DB_PASSWORD}
       MYSQL_USER: ${WORDPRESS_DB_USER}
       MYSQL_PASSWORD: ${WORDPRESS_DB_PASSWORD}
       MYSQL_DATABASE: ${WORDPRESS_DB_NAME}
 
-volumes: 
+volumes:
   support.badgerherald.org-mariadb:
   support.badgerherald.org-wordpress:
 
@@ -76,4 +76,3 @@ networks:
   default:
     external:
       name: support.badgerherald.org-network
-    

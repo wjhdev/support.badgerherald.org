@@ -19,7 +19,7 @@ export class BHAAUpdates {
     this.posts = await this.query.results
   }
 
-  @Listen('breakpointChanged', { target: 'parent' })
+  @Listen('breakpointChanged', { target: 'window' })
   breakpointChanged(event : CustomEvent<number>) {
     this.mobile = (event.detail === 1)
   }

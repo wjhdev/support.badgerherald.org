@@ -1,18 +1,17 @@
 bhaa-post-breadcrumbs {
-    width: 100%;
-    display: block;
-    height: 100%;
-    & > div {
-        margin: 0 auto;
-        max-width: 800px;
-        padding: 6px 20px 0px;
-        border-bottom: 1px solid rgba(black,.3)
-    }
-
+  width: 100%;
+  display: block;
+  height: 100%;
+  & > div {
+    margin: 0 auto;
+    max-width: 800px;
+    padding: 6px 20px 0px;
+    border-bottom: 1px solid rgba(black, 0.3);
+  }
 }
 
-@include breakpoint('tablet') {
-    bhaa-post-breadcrumbs {
-        display: none;
-    }
+@include breakpoint("tablet") {
+  bhaa-post-breadcrumbs {
+    display: none;
+  }
 }

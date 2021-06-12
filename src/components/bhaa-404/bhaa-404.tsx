@@ -1,11 +1,11 @@
-import { Component, h } from '@stencil/core';
+import { Component, h } from "@stencil/core";
 
 @Component({
-  tag: 'bhaa-404',
-  styleUrl: 'bhaa-404.scss',
+  tag: "bhaa-404",
+  styleUrl: "bhaa-404.scss",
 })
 export class Bhaa404 {
   render() {
-    return <h2>404</h2>
+    return <h2>404</h2>;
   }
 }

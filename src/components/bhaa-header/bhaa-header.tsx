@@ -25,7 +25,7 @@ export class BHAAHeader {
         <h2>Badger Herald Alumni Association</h2>
         <h1>Supporting the Herald Experiment</h1>
         <bhaa-heart-herald theme={this.theme} />
-        <wp-menu query={this.theme.getMenu('main')} options={ {classForMenuItem: (item) => item.title === "Donate" ? "donate" : ""} }></wp-menu>
+        <wp-menu query={this.theme.getMenu('main')} options={ {classForMenuItem: (item) => item.title === "Donate" ? "donate" : "", domForItem: null } }></wp-menu>
       </header>
     )
   }

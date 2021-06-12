@@ -1,54 +1,52 @@
-
 bhaa-wrapper {
+  width: 100%;
+  display: block;
+  padding: 40px 20px 0;
+  & > .wrapper {
+    overflow-y: hidden;
     width: 100%;
-    display: block;
-    padding: 40px 20px 0;
+    margin: 0 auto;
+    position: relative;
+  }
+}
+
+@include breakpoint("tablet") {
+  bhaa-wrapper {
+    padding: 40px 40px 0;
     & > .wrapper {
-        overflow-y: hidden;
-        width: 100%;
-        margin: 0 auto;
-        position: relative;
+      max-width: 620px;
     }
+  }
 }
 
-@include breakpoint('tablet') {
-    bhaa-wrapper {
-        padding: 40px 40px 0;
-        & > .wrapper {
-            max-width: 620px; 
-        }
+@include breakpoint("desktop") {
+  bhaa-wrapper {
+    & > .wrapper {
+      max-width: 960px;
     }
-}
-
-@include breakpoint('desktop') {
-    bhaa-wrapper {
-        & > .wrapper {
-            max-width: 960px; 
-        }
-        & > .wrapper .center {
-            margin: 0 auto;
-        }
-        & > .wrapper .left.absolute {
-            position: absolute;
-            left: 0;
-        }
-        & > .wrapper .right.margin {
-            margin-left: 40%;
-        }
-        & > .wrapper .float {
-            float: left;
-        }
-        & > .wrapper .left {
-            width: 38%;
-            margin-left: 2%;
-        }
-        & > .wrapper .right {
-            display: block;
-            width: 60%;
-        }
-        .clearfix {
-            clear: both;
-        }
+    & > .wrapper .center {
+      margin: 0 auto;
     }
+    & > .wrapper .left.absolute {
+      position: absolute;
+      left: 0;
+    }
+    & > .wrapper .right.margin {
+      margin-left: 40%;
+    }
+    & > .wrapper .float {
+      float: left;
+    }
+    & > .wrapper .left {
+      width: 38%;
+      margin-left: 2%;
+    }
+    & > .wrapper .right {
+      display: block;
+      width: 60%;
+    }
+    .clearfix {
+      clear: both;
+    }
+  }
 }
-

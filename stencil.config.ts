@@ -13,6 +13,7 @@ export const config: Config = {
         { src: 'style.css' },
         { src: 'index.php' },
         { src: 'theme-definition.json' },
+        { src: 'theme/', dest: '' },
         { src: '../node_modules/@webpress/core/dist/webpresscore/theme-overlay/functions.php', dest: 'functions.php'},
         { src: '../node_modules/@webpress/core/dist/webpresscore/theme-overlay/etc', dest: 'etc'}
       ]
