@@ -1,6 +1,6 @@
 import { Component, h, Prop, State } from '@stencil/core'
-import { Theme, Menu, TemplateQuery } from '@webpress/core'
-import '@webpress/tags'
+import { Theme, Menu, Template } from '@webpress/core'
+import '@webpress/theme'
 
 @Component({
   tag: 'bhaa-footer',
@@ -10,7 +10,7 @@ export class BHAAHeader {
   @Prop() theme : Theme
   @State() mainMenu : Menu
 
-  @Prop() query : TemplateQuery
+  @Prop() query : Template.Query
 
   
   render() {

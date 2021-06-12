@@ -1,6 +1,6 @@
 import { Component, h, Prop } from '@stencil/core';
 import { Post } from '@webpress/core';
-import '@webpress/tags'
+import '@webpress/theme'
 
 @Component({
   tag: 'bhaa-post-breadcrumbs',

@@ -1,6 +1,6 @@
 import { Component, h, Prop, State } from '@stencil/core'
 import { Theme, Menu, Template } from '@webpress/core'
-import '@webpress/tags'
+import '@webpress/theme'
 
 @Component({
   tag: 'bhaa-header',
@@ -8,17 +8,15 @@ import '@webpress/tags'
 })
 export class BHAAHeader {
   @Prop() theme : Theme
-  @State() mainMenu : Menu
+  @State() menu : Menu
 
   @Prop() query : Template.Query
 
   async componentWillRender() {
-    try {
-    if(!this.mainMenu && this.theme) {
-      this.mainMenu = await this.query.connection.request()
-    } }catch(e) {
-      console.log(e)
+    if (!this.menu && this.theme) {
+      this.menu = await this.theme.getMenu('main').result
     }
+    console.log(this.menu)
   }
   
   render() {
@@ -27,7 +25,7 @@ export class BHAAHeader {
         <h2>Badger Herald Alumni Association</h2>
         <h1>Supporting the Herald Experiment</h1>
         <bhaa-heart-herald theme={this.theme} />
-        <wp-menu menu={this.mainMenu} query={this.query} options={ {classForMenuItem: (item) => item.title === "Donate" ? "donate" : ""} }></wp-menu>
+        <wp-menu query={this.theme.getMenu('main')} options={ {classForMenuItem: (item) => item.title === "Donate" ? "donate" : ""} }></wp-menu>
       </header>
     )
   }

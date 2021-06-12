@@ -6,7 +6,7 @@ import { Query, Single } from '@webpress/core';
   styleUrl: 'bhaa-updates.scss',
 })
 export class BHAAUpdates {
-  @Prop() query: Query
+  @Prop() query: Query<Single>
 
   @State() mobile : boolean = false;
 
@@ -16,7 +16,7 @@ export class BHAAUpdates {
     if(!this.query) {
       return
     }
-    this.posts = await this.query.posts
+    this.posts = await this.query.results
   }
 
   @Listen('breakpointChanged', { target: 'parent' })

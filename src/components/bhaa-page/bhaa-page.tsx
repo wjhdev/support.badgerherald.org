@@ -6,7 +6,7 @@ import { Query, Post, Author } from '@webpress/core';
   styleUrl: 'bhaa-page.scss',
 })
 export class BhaaPage {
-  @Prop() query : Query
+  @Prop() query : Query<Post>
   @State() post: Post
   @State() author : Author
 
@@ -14,7 +14,7 @@ export class BhaaPage {
     if(!this.query) {
       return
     }
-    this.post = (await this.query.posts)[0]
+    this.post = (await this.query.result)[0]
   }
 
   render() {

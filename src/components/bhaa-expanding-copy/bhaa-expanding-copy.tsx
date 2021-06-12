@@ -1,12 +1,12 @@
 import { Component,  h, Prop } from '@stencil/core';
-import { Post } from '@webpress/core'
+import { Single } from '@webpress/core'
 
 @Component({
   tag: 'bhaa-expanding-copy',
   styleUrl: 'bhaa-expanding-copy.scss'
 })
 export class BHAAExpandingCopy {
-  @Prop() post : Post
+  @Prop() post : Single
 
   @Prop() linkText : string = ""
   

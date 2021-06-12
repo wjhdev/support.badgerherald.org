@@ -5,43 +5,43 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { Post, Query, TemplateQuery, Theme } from "@webpress/core";
+import { Post, Query, Single, Template, Theme } from "@webpress/core";
 export namespace Components {
     interface Bhaa404 {
     }
     interface BhaaExpandingCopy {
         "linkText": string;
-        "post": Post;
+        "post": Single;
     }
     interface BhaaFooter {
-        "query": TemplateQuery;
+        "query": Template.Query;
         "theme": Theme;
     }
     interface BhaaFrontPage {
-        "query": Query;
+        "query": Query<Single>;
     }
     interface BhaaHeader {
-        "query": TemplateQuery;
+        "query": Template.Query;
         "theme": Theme;
     }
     interface BhaaHeartHerald {
         "theme": Theme;
     }
     interface BhaaPage {
-        "query": Query;
+        "query": Query<Post>;
     }
     interface BhaaPost {
-        "query": Query;
+        "query": Query<Post>;
     }
     interface BhaaPostBreadcrumbs {
         "post": Post;
     }
     interface BhaaRoot {
-        "query": TemplateQuery;
+        "query": Template.Query;
         "theme": Theme;
     }
     interface BhaaUpdates {
-        "query": Query;
+        "query": Query<Single>;
     }
     interface BhaaWrapper {
     }
@@ -139,37 +139,37 @@ declare namespace LocalJSX {
     }
     interface BhaaExpandingCopy {
         "linkText"?: string;
-        "post"?: Post;
+        "post"?: Single;
     }
     interface BhaaFooter {
-        "query"?: TemplateQuery;
+        "query"?: Template.Query;
         "theme"?: Theme;
     }
     interface BhaaFrontPage {
-        "query"?: Query;
+        "query"?: Query<Single>;
     }
     interface BhaaHeader {
-        "query"?: TemplateQuery;
+        "query"?: Template.Query;
         "theme"?: Theme;
     }
     interface BhaaHeartHerald {
         "theme"?: Theme;
     }
     interface BhaaPage {
-        "query"?: Query;
+        "query"?: Query<Post>;
     }
     interface BhaaPost {
-        "query"?: Query;
+        "query"?: Query<Post>;
     }
     interface BhaaPostBreadcrumbs {
         "post"?: Post;
     }
     interface BhaaRoot {
-        "query"?: TemplateQuery;
+        "query"?: Template.Query;
         "theme"?: Theme;
     }
     interface BhaaUpdates {
-        "query"?: Query;
+        "query"?: Query<Single>;
     }
     interface BhaaWrapper {
         "onBreakpointChanged"?: (event: CustomEvent<number>) => void;

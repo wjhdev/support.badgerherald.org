@@ -7,7 +7,8 @@ export const config: Config = {
     {
       type: 'www',
       serviceWorker: null, // disable service workers,
-      buildDir: './bin/wp-content/themes/badgerherald.org',
+      buildDir: 'app',
+      dir: 'bin/wp-content/themes/support.badgerherald.org',
       copy: [
         { src: 'style.css' },
         { src: 'index.php' },

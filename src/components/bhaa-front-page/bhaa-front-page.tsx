@@ -1,17 +1,17 @@
 import { Component, h, Prop,State  } from '@stencil/core';
-import { Query, Post } from '@webpress/core';
+import { Query, Single } from '@webpress/core';
 
 @Component({
   tag: 'bhaa-front-page',
   styleUrl: 'bhaa-front-page.scss',
 })
 export class BhaaFrontPage {
-  @Prop() query: Query 
-  @State() post: Post
+  @Prop() query: Query<Single> 
+  @State() post: Single
 
   async componentWillUpdate() {
     if(!this.post) {
-      this.post = (await this.query.posts)[0]
+      this.post = await this.query.result
     }
   }
 

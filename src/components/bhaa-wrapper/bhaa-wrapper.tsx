@@ -1,5 +1,5 @@
 import { Component, h, Listen, EventEmitter, Event } from '@stencil/core';
-import '@webpress/tags'
+import '@webpress/theme'
 
 @Component({
   tag: 'bhaa-wrapper',
