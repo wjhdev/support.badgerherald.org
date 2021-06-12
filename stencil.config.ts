@@ -7,14 +7,13 @@ export const config: Config = {
     {
       type: 'www',
       serviceWorker: null, // disable service workers,
-      buildDir: 'app',
-      dir: '../../../../badgerherald.org/server/wp-content/themes/badgerherald.org/',
+      buildDir: './bin/wp-content/themes/badgerherald.org',
       copy: [
         { src: 'style.css' },
         { src: 'index.php' },
         { src: 'theme-definition.json' },
-        { src: '../node_modules/@webpress/core/src/theme-overlay/functions.php', dest: 'functions.php'},
-        { src: '../node_modules/@webpress/core/src/theme-overlay/etc', dest: 'etc'}
+        { src: '../node_modules/@webpress/core/dist/webpresscore/theme-overlay/functions.php', dest: 'functions.php'},
+        { src: '../node_modules/@webpress/core/dist/webpresscore/theme-overlay/etc', dest: 'etc'}
       ]
     }
   ]

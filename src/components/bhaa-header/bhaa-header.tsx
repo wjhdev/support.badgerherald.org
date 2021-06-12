@@ -1,5 +1,5 @@
 import { Component, h, Prop, State } from '@stencil/core'
-import { Theme, Menu, TemplateQuery } from '@webpress/core'
+import { Theme, Menu, Template } from '@webpress/core'
 import '@webpress/tags'
 
 @Component({
@@ -10,16 +10,15 @@ export class BHAAHeader {
   @Prop() theme : Theme
   @State() mainMenu : Menu
 
-  @Prop() query : TemplateQuery
+  @Prop() query : Template.Query
 
   async componentWillRender() {
     try {
     if(!this.mainMenu && this.theme) {
-      this.mainMenu = await this.theme.getMenu('main')
+      this.mainMenu = await this.query.connection.request()
     } }catch(e) {
       console.log(e)
     }
-  
   }
   
   render() {

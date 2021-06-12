@@ -1,0 +1,79 @@
+version: "3"
+
+services:
+  nginx:
+    build:
+      context: config/nginx
+    container_name: support.badgerherald.org-nginx
+    links:
+      - wordpress
+    ports:
+      - 80:80
+      - 443:443
+    volumes:
+      - support.badgerherald.org-wordpress:/var/www/html 
+      - ./bin/wp-content:/var/www/html/wp-content/
+      - ./${WORDPRESS_UPLOADS_DIR}:/var/www/html/wp-content/uploads
+    restart: always
+    environment: 
+      DOMAIN: ${SITE_URL}
+
+  wordpress:
+    container_name: support.badgerherald.org-wordpress
+    depends_on:
+      - mariadb
+    image: wordpress:latest
+    expose:
+      - 80
+    restart: always
+    volumes: 
+      - support.badgerherald.org-wordpress:/var/www/html
+      - ./bin/wp-content/themes:/var/www/html/wp-content/themes/
+    environment:
+      WORDPRESS_DB_HOST: ${WORDPRESS_DB_HOST}
+      WORDPRESS_DB_USER: ${WORDPRESS_DB_USER}
+      WORDPRESS_DB_PASSWORD: ${WORDPRESS_DB_PASSWORD}
+      WORDPRESS_DB_NAME: ${WORDPRESS_DB_NAME}
+      WORDPRESS_CONFIG_EXTRA: |
+        /* Domain */
+        define('WP_HOME','https://${SITE_URL}');
+        define('WP_SITEURL','https://${SITE_URL}');
+        define('WP_CACHE',true);
+        define('WP_MEMORY_LIMIT','128M');
+        $$memcached_servers = array(
+          'default' => array(
+            'memcached:11211',
+          )
+        );
+
+  memcached:
+    container_name: support.badgerherald.org-memcached
+    image: memcached:latest
+    ports:
+      - "11211:11211"
+
+  mariadb:
+    container_name: support.badgerherald.org-mariadb
+    image: mariadb
+    volumes:
+      - ./config/sql/install/:/docker-entrypoint-initdb.d
+      - ./config/sql/my.cnf:/etc/mysql/conf.d/my.cnf
+      - support.badgerherald.org-mariadb:/var/lib/mysql:rw
+    restart: always
+    expose:
+      - 3306
+    environment: 
+      MYSQL_ROOT_PASSWORD: ${WORDPRESS_DB_PASSWORD}
+      MYSQL_USER: ${WORDPRESS_DB_USER}
+      MYSQL_PASSWORD: ${WORDPRESS_DB_PASSWORD}
+      MYSQL_DATABASE: ${WORDPRESS_DB_NAME}
+
+volumes: 
+  support.badgerherald.org-mariadb:
+  support.badgerherald.org-wordpress:
+
+networks:
+  default:
+    external:
+      name: support.badgerherald.org-network
+    
