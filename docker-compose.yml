@@ -49,8 +49,8 @@ services:
   memcached:
     container_name: support.badgerherald.org-memcached
     image: memcached:latest
-    ports:
-      - "11211:11211"
+    expose:
+      - 11211
 
   mariadb:
     container_name: support.badgerherald.org-mariadb
