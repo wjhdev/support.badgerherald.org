@@ -19,7 +19,7 @@ bhaa-main {
     font-size: size(6.5);
   }
   h1 span.experiment {
-    line-height: baseline(9);
+    
     font-size: size(8.5);
     font-style: normal;
   }
@@ -29,6 +29,12 @@ bhaa-main {
     }
     h1 span.experiment {
       font-size: size(8.5);
+    }
+  }
+
+  &.updates {
+    h3 {
+      padding-bottom: baseline(0);
     }
   }
 }

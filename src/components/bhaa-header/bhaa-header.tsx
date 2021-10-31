@@ -8,8 +8,8 @@ import "@webpress/theme";
 })
 export class BHAAHeader {
   @Prop() theme: Theme;
-  @State() menu: Menu;
-
+  @State() menu: Menu;  
+  @State() toggle: boolean
   @Prop() query: Template.Query;
 
   async componentWillRender() {
@@ -18,6 +18,9 @@ export class BHAAHeader {
     }
     console.log(this.menu);
   }
+  toggleMobileMenu() {
+    this.toggle = !this.toggle
+  }
 
   render() {
     return (
@@ -25,6 +28,7 @@ export class BHAAHeader {
         <bhaa-heart-herald theme={this.theme} />
         <h1>Badger Herald <br />
         Alumni Association</h1>
+        <a href="#" onClick={_ => this.toggleMobileMenu()} class={this.toggle ? "toggle toggled" : "toggle"}>{this.toggle ? "Hide" : "Menu"}</a>
         <wp-menu
           query={this.theme.getMenu("main")}
           options={{

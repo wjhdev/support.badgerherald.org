@@ -96,10 +96,14 @@ bhaa-sticker {
     p {
       font-size: size(2.5);
       line-height: size(4);
-      margin-top: 27px;
-      margin-bottom: 18px;
-      padding-right: 30px;
+      margin-bottom: baseline(3);
       width: 100%;
+    }
+
+    h3 {
+      font-size: size(4); 
+      line-height: baseline(5);
+      margin-bottom: baseline(4);
     }
 
     a.button {

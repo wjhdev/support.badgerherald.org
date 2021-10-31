@@ -21,29 +21,33 @@ bhaa-header {
     position: relative;
   }
   menu {
-    position: absolute;
     bottom: 0;
+    margin-top: baseline(3);
     list-style-type: none;
-    display: inline-block;
-    display: none;
-    width: 100%;
     font-family: $body;
+    width: col(3,2);
+    margin-left: gutter(-1);
     left: 0;
+    &:before {
+      content: "Menu";
+      color: $actionRed;
+    }
     li {
       display: inline-block;
       a {
+        display: inline-block;
         color: white;
         text-decoration: none;
         font-size: 1em;
-        display: inline-block;
-        padding: 8px 12px;
-        margin: 0 2px;
+        width: 100%;
+        display: block;
+        line-height: baseline(5);
+        font-size: size(3);
+        padding: baseline(1) 20px;
       }
-      &.active a {
-        background: rgba(#e3ecf3, 1);
-        color: #262626;
-      }
+      @include breakpoint("tablet") {
 
+      }
     }
   }
 }
