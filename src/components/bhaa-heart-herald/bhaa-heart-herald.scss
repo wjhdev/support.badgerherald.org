@@ -1,8 +1,9 @@
 bhaa-heart-herald {
   display: inline-block;
-  width: 200px;
-  max-width: 400px;
+  height: baseline(7);
   box-sizing: border-box;
+  line-height: baseline(7);
+  font-size: size(7);
   img {
     width: 48%;
     height: auto;

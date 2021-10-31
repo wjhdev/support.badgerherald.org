@@ -6,7 +6,6 @@ bhaa-footer {
     box-sizing: border-box;
     padding: 48px 20px 85px;
     bhaa-heart-herald {
-      width: 46px;
       padding-right: 6px;
       position: relative;
       top: 3px;
@@ -20,7 +19,7 @@ bhaa-footer {
     display: inline-block;
     text-align: center;
     width: 100%;
-    font-family: "Whitney Narrow SSm A", "Whitney Narrow SSm B";
+    font-family: $body;
     left: 0;
     li {
       display: inline-block;

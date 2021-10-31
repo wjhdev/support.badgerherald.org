@@ -1,5 +1,5 @@
 import { Component, h, Prop } from "@stencil/core";
-import { Post } from "@webpress/core";
+import { Single } from "@webpress/core";
 import "@webpress/theme";
 
 @Component({
@@ -7,7 +7,7 @@ import "@webpress/theme";
   styleUrl: "bhaa-post-breadcrumbs.scss",
 })
 export class BhaaPostBreadcrumbs {
-  @Prop() post: Post;
+  @Prop() post: Single;
 
   render() {
     return (

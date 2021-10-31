@@ -1,0 +1,156 @@
+body {
+  background: $supportBlue;
+  font-family: $body;
+  font-style: normal;
+  font-weight: 500;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: $headline;
+  font-style: normal;
+  font-weight: 700;
+}
+
+h1 {
+  font-size: 54pt;
+}
+
+h2 {
+  font-size: 36pt;
+}
+
+wp-title,
+wp-running-copy {
+  font-size: 1.25em;
+  margin-top: 18px;
+  line-height: 1.6em;
+  p,
+  img {
+    margin: 0 0 18px;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin: 0 0 24px;
+  }
+
+  ul,
+  ol {
+    line-height: 1.5em;
+    margin-left: 40px;
+    li {
+      margin-bottom: 12px;
+    }
+  }
+}
+
+#mc_embed_signup {
+  background: #55acee;
+  padding: 20px;
+  width: 340px;
+  .indicates-required {
+    margin-top: -15px;
+    margin-bottom: 18px;
+  }
+  label {
+    width: 100%;
+    display: block;
+    padding-bottom: 4px;
+    padding-top: 9px;
+  }
+  input {
+    width: 100%;
+    border: none;
+    padding: 4px 10px;
+    font-size: 1em;
+    font-family: $body;
+    margin-bottom: 6px;
+  }
+  input[type="submit"] {
+    width: 300px;
+    background: black;
+    padding: 8px 20px;
+    color: white;
+    font-size: 1.1em;
+    font-weight: bold;
+    margin-top: 20px;
+    &:hover {
+      background: rgba(0, 0, 0, 0.6);
+      cursor: pointer;
+    }
+  }
+}
+
+bhaa-app {
+  display: block;
+
+  ///
+  /// Baseline & Grid
+  ///
+  @include setGrid(3, 80, 20);
+  @include setBaseline(5);
+  @include breakpoint("mobilexl") {
+    @include setGrid(6, 80, 20);
+    @include setBaseline(6);
+  }
+  @include breakpoint("tablet") {
+    @include setGrid(9, 80, 20);
+    @include setBaseline(5);
+  }
+  @include breakpoint("desktop") {
+    @include setGrid(12, 80, 20);
+    @include setBaseline(5);
+  }
+  @include breakpoint("xl") {
+    @include setGrid(15, 80, 20);
+    @include setBaseline(6);
+  }
+
+  ///
+  /// Wireframe layout
+  ///
+
+  @include breakpoint("tablet") {
+    display: flex;
+    align-items: stretch;
+  }
+
+  main {
+    width: 100%;
+    display: block;
+    padding-top: baseline(5);
+    @include breakpoint("tablet") {
+      @include setCol(6, 1);
+      padding-top: baseline(31);
+    }
+    @include breakpoint("desktop") {
+      @include setCol(6);
+    }
+    @include breakpoint("xl") {
+      padding-top: baseline(34);
+      @include setCol(8);
+    }
+  }
+
+  bhaa-footer {
+    @include breakpoint("tablet") {
+      @include setCol(2.5);
+      position: fixed;
+      left: 0;
+      bottom: 0;
+    }
+
+    @include breakpoint("desktop") {
+      @include setCol(3);
+      position: fixed;
+    }
+  }
+}

@@ -1,25 +1,22 @@
 bhaa-header {
+  background: #262626;
   header {
-    width: 100%;
-    background: #262626;
-    text-align: center;
+    padding: baseline(3) gutter();
+  }
+  header {
     color: #e3ecf3;
+    color: $supportBlue;
     box-sizing: border-box;
-    padding: 48px 20px 85px;
-    h2 {
-      font-size: 1.1em;
-      font-weight: 600;
-      font-family: "Whitney Narrow SSm A", "Whitney Narrow SSm B";
-      opacity: 0.4;
-      padding-bottom: 6px;
-    }
     h1 {
-      font-size: 1.8em;
-      line-height: 1.2em;
-      margin-bottom: 12px;
+      font-size: size(4); 
+      line-height: baseline(6);
+      font-weight: 500;
+      letter-spacing: -.2;
+      margin-top: baseline(10);
     }
     bhaa-heart-herald {
-      width: 80px;
+      position: absolute;
+      width: baseline(14); // height is relative to width, so use vertical units here:
     }
     position: relative;
   }
@@ -28,15 +25,14 @@ bhaa-header {
     bottom: 0;
     list-style-type: none;
     display: inline-block;
-    text-align: center;
+    display: none;
     width: 100%;
-    font-family: "Whitney Narrow SSm A", "Whitney Narrow SSm B";
+    font-family: $body;
     left: 0;
     li {
       display: inline-block;
       a {
         color: white;
-        font-weight: 600;
         text-decoration: none;
         font-size: 1em;
         display: inline-block;
@@ -47,41 +43,23 @@ bhaa-header {
         background: rgba(#e3ecf3, 1);
         color: #262626;
       }
-      &:not(.active):not(.donate) a:hover {
-        background: rgba(#e3ecf3, 0.2);
-        color: #55acee;
-      }
-      &.donate a {
-        background: #55acee;
-        color: white;
-      }
-      &.donate a:hover {
-        background: rgb(68, 142, 199);
-      }
+
     }
   }
 }
-
-@media (min-width: 500px) {
-  bhaa-header {
-    header {
-      h2 {
-        font-size: 1.3em;
-      }
-      h1 {
-        font-size: 2.4em;
-      }
-      bhaa-heart-herald {
-        width: 100px;
-      }
-    }
-    menu {
-      li {
-        a {
-          font-size: 1.2em;
-          padding: 8px 20px;
-        }
-      }
-    }
+bhaa-header {
+  width: 100%;
+  display: block;
+  padding-top: baseline(5);
+  @include breakpoint("tablet") {
+    padding-top: baseline(20);
+    @include setCol(2.5);
+  }
+  @include breakpoint("desktop") {
+    @include setCol(3);
+  }
+  @include breakpoint("xl") {
+    padding-top: baseline(24);
+    @include setCol(3.5);
   }
 }

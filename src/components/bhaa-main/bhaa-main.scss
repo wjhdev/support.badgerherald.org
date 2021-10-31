@@ -1,0 +1,35 @@
+bhaa-main {
+  width: 100%;
+  h1.main {
+    font-style: italic;
+    ::before {
+      content: "";
+      display: inline-block;
+      width: col(1);
+      height: baseline(1);
+      background-color: black;
+      position: absolute;
+      top: baseline(-8);
+    }
+  }
+  h1 {
+    color: white;
+    position: relative;
+    line-height: baseline(9);
+    font-size: size(6.5);
+  }
+  h1 span.experiment {
+    line-height: baseline(9);
+    font-size: size(8.5);
+    font-style: normal;
+  }
+  @include breakpoint("tablet") {
+    h1 {
+      font-size: size(6.5);
+    }
+    h1 span.experiment {
+      font-size: size(8.5);
+    }
+  }
+}
+

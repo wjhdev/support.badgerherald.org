@@ -22,9 +22,9 @@ export class BHAAHeader {
   render() {
     return (
       <header>
-        <h2>Badger Herald Alumni Association</h2>
-        <h1>Supporting the Herald Experiment</h1>
         <bhaa-heart-herald theme={this.theme} />
+        <h1>Badger Herald <br />
+        Alumni Association</h1>
         <wp-menu
           query={this.theme.getMenu("main")}
           options={{

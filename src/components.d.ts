@@ -5,9 +5,14 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { Post, Query, Single, Template, Theme } from "@webpress/core";
+import { Menu, Post, Query, Single, Template, Theme } from "@webpress/core";
 export namespace Components {
     interface Bhaa404 {
+    }
+    interface BhaaApp {
+        "menu": Menu;
+        "query": Template.Query;
+        "theme": Theme;
     }
     interface BhaaExpandingCopy {
         "linkText": string;
@@ -17,15 +22,17 @@ export namespace Components {
         "query": Template.Query;
         "theme": Theme;
     }
-    interface BhaaFrontPage {
-        "query": Query<Single>;
-    }
     interface BhaaHeader {
         "query": Template.Query;
         "theme": Theme;
     }
     interface BhaaHeartHerald {
         "theme": Theme;
+    }
+    interface BhaaMain {
+        "query": Query<Single>;
+    }
+    interface BhaaMainSection {
     }
     interface BhaaPage {
         "query": Query<Post>;
@@ -34,11 +41,13 @@ export namespace Components {
         "query": Query<Post>;
     }
     interface BhaaPostBreadcrumbs {
-        "post": Post;
+        "post": Single;
     }
-    interface BhaaRoot {
-        "query": Template.Query;
-        "theme": Theme;
+    interface BhaaQzip {
+    }
+    interface BhaaSticker {
+    }
+    interface BhaaTopBuffer {
     }
     interface BhaaUpdates {
         "query": Query<Single>;
@@ -53,6 +62,12 @@ declare global {
         prototype: HTMLBhaa404Element;
         new (): HTMLBhaa404Element;
     };
+    interface HTMLBhaaAppElement extends Components.BhaaApp, HTMLStencilElement {
+    }
+    var HTMLBhaaAppElement: {
+        prototype: HTMLBhaaAppElement;
+        new (): HTMLBhaaAppElement;
+    };
     interface HTMLBhaaExpandingCopyElement extends Components.BhaaExpandingCopy, HTMLStencilElement {
     }
     var HTMLBhaaExpandingCopyElement: {
@@ -65,12 +80,6 @@ declare global {
         prototype: HTMLBhaaFooterElement;
         new (): HTMLBhaaFooterElement;
     };
-    interface HTMLBhaaFrontPageElement extends Components.BhaaFrontPage, HTMLStencilElement {
-    }
-    var HTMLBhaaFrontPageElement: {
-        prototype: HTMLBhaaFrontPageElement;
-        new (): HTMLBhaaFrontPageElement;
-    };
     interface HTMLBhaaHeaderElement extends Components.BhaaHeader, HTMLStencilElement {
     }
     var HTMLBhaaHeaderElement: {
@@ -82,6 +91,18 @@ declare global {
     var HTMLBhaaHeartHeraldElement: {
         prototype: HTMLBhaaHeartHeraldElement;
         new (): HTMLBhaaHeartHeraldElement;
+    };
+    interface HTMLBhaaMainElement extends Components.BhaaMain, HTMLStencilElement {
+    }
+    var HTMLBhaaMainElement: {
+        prototype: HTMLBhaaMainElement;
+        new (): HTMLBhaaMainElement;
+    };
+    interface HTMLBhaaMainSectionElement extends Components.BhaaMainSection, HTMLStencilElement {
+    }
+    var HTMLBhaaMainSectionElement: {
+        prototype: HTMLBhaaMainSectionElement;
+        new (): HTMLBhaaMainSectionElement;
     };
     interface HTMLBhaaPageElement extends Components.BhaaPage, HTMLStencilElement {
     }
@@ -101,11 +122,23 @@ declare global {
         prototype: HTMLBhaaPostBreadcrumbsElement;
         new (): HTMLBhaaPostBreadcrumbsElement;
     };
-    interface HTMLBhaaRootElement extends Components.BhaaRoot, HTMLStencilElement {
+    interface HTMLBhaaQzipElement extends Components.BhaaQzip, HTMLStencilElement {
     }
-    var HTMLBhaaRootElement: {
-        prototype: HTMLBhaaRootElement;
-        new (): HTMLBhaaRootElement;
+    var HTMLBhaaQzipElement: {
+        prototype: HTMLBhaaQzipElement;
+        new (): HTMLBhaaQzipElement;
+    };
+    interface HTMLBhaaStickerElement extends Components.BhaaSticker, HTMLStencilElement {
+    }
+    var HTMLBhaaStickerElement: {
+        prototype: HTMLBhaaStickerElement;
+        new (): HTMLBhaaStickerElement;
+    };
+    interface HTMLBhaaTopBufferElement extends Components.BhaaTopBuffer, HTMLStencilElement {
+    }
+    var HTMLBhaaTopBufferElement: {
+        prototype: HTMLBhaaTopBufferElement;
+        new (): HTMLBhaaTopBufferElement;
     };
     interface HTMLBhaaUpdatesElement extends Components.BhaaUpdates, HTMLStencilElement {
     }
@@ -121,21 +154,30 @@ declare global {
     };
     interface HTMLElementTagNameMap {
         "bhaa-404": HTMLBhaa404Element;
+        "bhaa-app": HTMLBhaaAppElement;
         "bhaa-expanding-copy": HTMLBhaaExpandingCopyElement;
         "bhaa-footer": HTMLBhaaFooterElement;
-        "bhaa-front-page": HTMLBhaaFrontPageElement;
         "bhaa-header": HTMLBhaaHeaderElement;
         "bhaa-heart-herald": HTMLBhaaHeartHeraldElement;
+        "bhaa-main": HTMLBhaaMainElement;
+        "bhaa-main-section": HTMLBhaaMainSectionElement;
         "bhaa-page": HTMLBhaaPageElement;
         "bhaa-post": HTMLBhaaPostElement;
         "bhaa-post-breadcrumbs": HTMLBhaaPostBreadcrumbsElement;
-        "bhaa-root": HTMLBhaaRootElement;
+        "bhaa-qzip": HTMLBhaaQzipElement;
+        "bhaa-sticker": HTMLBhaaStickerElement;
+        "bhaa-top-buffer": HTMLBhaaTopBufferElement;
         "bhaa-updates": HTMLBhaaUpdatesElement;
         "bhaa-wrapper": HTMLBhaaWrapperElement;
     }
 }
 declare namespace LocalJSX {
     interface Bhaa404 {
+    }
+    interface BhaaApp {
+        "menu"?: Menu;
+        "query"?: Template.Query;
+        "theme"?: Theme;
     }
     interface BhaaExpandingCopy {
         "linkText"?: string;
@@ -145,15 +187,17 @@ declare namespace LocalJSX {
         "query"?: Template.Query;
         "theme"?: Theme;
     }
-    interface BhaaFrontPage {
-        "query"?: Query<Single>;
-    }
     interface BhaaHeader {
         "query"?: Template.Query;
         "theme"?: Theme;
     }
     interface BhaaHeartHerald {
         "theme"?: Theme;
+    }
+    interface BhaaMain {
+        "query"?: Query<Single>;
+    }
+    interface BhaaMainSection {
     }
     interface BhaaPage {
         "query"?: Query<Post>;
@@ -162,11 +206,13 @@ declare namespace LocalJSX {
         "query"?: Query<Post>;
     }
     interface BhaaPostBreadcrumbs {
-        "post"?: Post;
+        "post"?: Single;
     }
-    interface BhaaRoot {
-        "query"?: Template.Query;
-        "theme"?: Theme;
+    interface BhaaQzip {
+    }
+    interface BhaaSticker {
+    }
+    interface BhaaTopBuffer {
     }
     interface BhaaUpdates {
         "query"?: Query<Single>;
@@ -176,15 +222,19 @@ declare namespace LocalJSX {
     }
     interface IntrinsicElements {
         "bhaa-404": Bhaa404;
+        "bhaa-app": BhaaApp;
         "bhaa-expanding-copy": BhaaExpandingCopy;
         "bhaa-footer": BhaaFooter;
-        "bhaa-front-page": BhaaFrontPage;
         "bhaa-header": BhaaHeader;
         "bhaa-heart-herald": BhaaHeartHerald;
+        "bhaa-main": BhaaMain;
+        "bhaa-main-section": BhaaMainSection;
         "bhaa-page": BhaaPage;
         "bhaa-post": BhaaPost;
         "bhaa-post-breadcrumbs": BhaaPostBreadcrumbs;
-        "bhaa-root": BhaaRoot;
+        "bhaa-qzip": BhaaQzip;
+        "bhaa-sticker": BhaaSticker;
+        "bhaa-top-buffer": BhaaTopBuffer;
         "bhaa-updates": BhaaUpdates;
         "bhaa-wrapper": BhaaWrapper;
     }
@@ -194,15 +244,19 @@ declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
             "bhaa-404": LocalJSX.Bhaa404 & JSXBase.HTMLAttributes<HTMLBhaa404Element>;
+            "bhaa-app": LocalJSX.BhaaApp & JSXBase.HTMLAttributes<HTMLBhaaAppElement>;
             "bhaa-expanding-copy": LocalJSX.BhaaExpandingCopy & JSXBase.HTMLAttributes<HTMLBhaaExpandingCopyElement>;
             "bhaa-footer": LocalJSX.BhaaFooter & JSXBase.HTMLAttributes<HTMLBhaaFooterElement>;
-            "bhaa-front-page": LocalJSX.BhaaFrontPage & JSXBase.HTMLAttributes<HTMLBhaaFrontPageElement>;
             "bhaa-header": LocalJSX.BhaaHeader & JSXBase.HTMLAttributes<HTMLBhaaHeaderElement>;
             "bhaa-heart-herald": LocalJSX.BhaaHeartHerald & JSXBase.HTMLAttributes<HTMLBhaaHeartHeraldElement>;
+            "bhaa-main": LocalJSX.BhaaMain & JSXBase.HTMLAttributes<HTMLBhaaMainElement>;
+            "bhaa-main-section": LocalJSX.BhaaMainSection & JSXBase.HTMLAttributes<HTMLBhaaMainSectionElement>;
             "bhaa-page": LocalJSX.BhaaPage & JSXBase.HTMLAttributes<HTMLBhaaPageElement>;
             "bhaa-post": LocalJSX.BhaaPost & JSXBase.HTMLAttributes<HTMLBhaaPostElement>;
             "bhaa-post-breadcrumbs": LocalJSX.BhaaPostBreadcrumbs & JSXBase.HTMLAttributes<HTMLBhaaPostBreadcrumbsElement>;
-            "bhaa-root": LocalJSX.BhaaRoot & JSXBase.HTMLAttributes<HTMLBhaaRootElement>;
+            "bhaa-qzip": LocalJSX.BhaaQzip & JSXBase.HTMLAttributes<HTMLBhaaQzipElement>;
+            "bhaa-sticker": LocalJSX.BhaaSticker & JSXBase.HTMLAttributes<HTMLBhaaStickerElement>;
+            "bhaa-top-buffer": LocalJSX.BhaaTopBuffer & JSXBase.HTMLAttributes<HTMLBhaaTopBufferElement>;
             "bhaa-updates": LocalJSX.BhaaUpdates & JSXBase.HTMLAttributes<HTMLBhaaUpdatesElement>;
             "bhaa-wrapper": LocalJSX.BhaaWrapper & JSXBase.HTMLAttributes<HTMLBhaaWrapperElement>;
         }

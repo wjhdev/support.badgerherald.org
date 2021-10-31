@@ -1,7 +1,13 @@
-$supportBlue: #55acee;
+@import 'grid.scss';
+@import 'baseline.scss';
+
+$supportBlue: #5eb5f7;
 
 $colWidth: 94;
 $gutterWidth: 16;
+
+$headline: "Sentinel SSm A", "Sentinel SSm B";
+$body: "Ideal Sans A", "Ideal Sans B";
 
 @function pageWidth($cols: 1, $additionalGutter: 0) {
   @return (
@@ -9,17 +15,8 @@ $gutterWidth: 16;
   );
 }
 
-/***
- * Grid Mixins
- */
-@mixin breakpoint($breakpoint) {
-  @if $breakpoint == "tablet" {
-    @media (min-width: pageWidth(4,2) + "px") {
-      @content;
-    }
-  } @else if $breakpoint == "desktop" {
-    @media (min-width: pageWidth(8,6) + "px") {
-      @content;
-    }
-  }
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
