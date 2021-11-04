@@ -1,5 +1,4 @@
-import { Component, h, Prop, State } from "@stencil/core";
-import { Query, Single, Post, Page, PageQueryArgs } from "@webpress/core";
+import { Component, h } from "@stencil/core";
 
 @Component({
   tag: "bhaa-main-section",

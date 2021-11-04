@@ -1,5 +1,4 @@
-import { Component, h, Prop, State } from "@stencil/core";
-import { Theme, Menu, Template } from "@webpress/core";
+import { Component, h } from "@stencil/core";
 import "@webpress/theme";
 
 @Component({

@@ -47,8 +47,6 @@ export namespace Components {
     }
     interface BhaaSticker {
     }
-    interface BhaaTopBuffer {
-    }
     interface BhaaUpdates {
         "query": Query<Single>;
     }
@@ -134,12 +132,6 @@ declare global {
         prototype: HTMLBhaaStickerElement;
         new (): HTMLBhaaStickerElement;
     };
-    interface HTMLBhaaTopBufferElement extends Components.BhaaTopBuffer, HTMLStencilElement {
-    }
-    var HTMLBhaaTopBufferElement: {
-        prototype: HTMLBhaaTopBufferElement;
-        new (): HTMLBhaaTopBufferElement;
-    };
     interface HTMLBhaaUpdatesElement extends Components.BhaaUpdates, HTMLStencilElement {
     }
     var HTMLBhaaUpdatesElement: {
@@ -166,7 +158,6 @@ declare global {
         "bhaa-post-breadcrumbs": HTMLBhaaPostBreadcrumbsElement;
         "bhaa-qzip": HTMLBhaaQzipElement;
         "bhaa-sticker": HTMLBhaaStickerElement;
-        "bhaa-top-buffer": HTMLBhaaTopBufferElement;
         "bhaa-updates": HTMLBhaaUpdatesElement;
         "bhaa-wrapper": HTMLBhaaWrapperElement;
     }
@@ -212,8 +203,6 @@ declare namespace LocalJSX {
     }
     interface BhaaSticker {
     }
-    interface BhaaTopBuffer {
-    }
     interface BhaaUpdates {
         "query"?: Query<Single>;
     }
@@ -234,7 +223,6 @@ declare namespace LocalJSX {
         "bhaa-post-breadcrumbs": BhaaPostBreadcrumbs;
         "bhaa-qzip": BhaaQzip;
         "bhaa-sticker": BhaaSticker;
-        "bhaa-top-buffer": BhaaTopBuffer;
         "bhaa-updates": BhaaUpdates;
         "bhaa-wrapper": BhaaWrapper;
     }
@@ -256,7 +244,6 @@ declare module "@stencil/core" {
             "bhaa-post-breadcrumbs": LocalJSX.BhaaPostBreadcrumbs & JSXBase.HTMLAttributes<HTMLBhaaPostBreadcrumbsElement>;
             "bhaa-qzip": LocalJSX.BhaaQzip & JSXBase.HTMLAttributes<HTMLBhaaQzipElement>;
             "bhaa-sticker": LocalJSX.BhaaSticker & JSXBase.HTMLAttributes<HTMLBhaaStickerElement>;
-            "bhaa-top-buffer": LocalJSX.BhaaTopBuffer & JSXBase.HTMLAttributes<HTMLBhaaTopBufferElement>;
             "bhaa-updates": LocalJSX.BhaaUpdates & JSXBase.HTMLAttributes<HTMLBhaaUpdatesElement>;
             "bhaa-wrapper": LocalJSX.BhaaWrapper & JSXBase.HTMLAttributes<HTMLBhaaWrapperElement>;
         }

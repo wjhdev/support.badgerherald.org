@@ -1,5 +1,5 @@
 import { Component, h, Prop, State } from "@stencil/core";
-import { Query, Single, Post, Page, PageQueryArgs, Media } from "@webpress/core";
+import { Query, Single, Post, Page, PageQueryArgs } from "@webpress/core";
 
 @Component({
   tag: "bhaa-main",
@@ -78,7 +78,7 @@ export class BhaaMain {
           }
           return (
             <div>
-              <wp-title class="left absolute" post={post} el="h3" />
+              <wp-link object={post}><wp-title class="left absolute" post={post} el="h3" /></wp-link>
               <wp-date class="left absolute" post={post} />
             </div>
           );

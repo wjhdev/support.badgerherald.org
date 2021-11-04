@@ -28,12 +28,8 @@ bhaa-header {
     width: col(3,2);
     margin-left: gutter(-1);
     left: 0;
-    &:before {
-      content: "Menu";
-      color: $actionRed;
-    }
     li {
-      display: inline-block;
+      //display: inline-block;
       a {
         display: inline-block;
         color: white;

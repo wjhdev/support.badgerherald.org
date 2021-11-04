@@ -23,12 +23,12 @@
   },
   "license": "MIT",
   "devDependencies": {
-    "@stencil/core": "^2.6.0",
+    "@stencil/core": "^2.10.0",
     "@stencil/router": "^1.0.1",
     "@stencil/sass": "^1.4.1",
-    "@webpress/core": "^0.0.14",
-    "@webpress/router": "^0.0.14",
-    "@webpress/theme": "^0.0.14",
+    "@webpress/core": "file:../webpress/src/packages/core",
+    "@webpress/router": "file:../webpress/src/packages/router",
+    "@webpress/theme": "file:../webpress/src/packages/theme",
     "prettier": "2.3.1"
   }
 }

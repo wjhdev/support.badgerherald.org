@@ -10,19 +10,22 @@ export class BadgerHeraldAlumniAssociation {
   @Prop() query: Template.Query;
   @Prop() menu: Menu
 
+  template : Template
+
   async componentWillRender() {
     if (!this.menu && this.theme) {
       this.menu = await this.theme.getMenu("main").result;
     }
+    this.template = await this.query.template
     console.log(this.menu);
   }
 
   render() {
     if (!this.menu) {}
+    
     return [
       <bhaa-header theme={this.theme} query={this.query}></bhaa-header>,
       <main>
-        
         <wp-router query={this.query}>
         <wp-template
           definition={{
