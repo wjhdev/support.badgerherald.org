@@ -8,13 +8,13 @@ bhaa-sticker {
     position: fixed;
   }
   @include breakpoint("desktop") {
-    @include setCol(3);
+    @include setCol(2.5, 1);
     position: fixed;
     bottom: inherit;
     bottom: unset;
   }
   @include breakpoint("xl") {
-    @include setCol(3);
+    @include setCol(3, 1);
     position: fixed;
   }
 }
@@ -26,7 +26,6 @@ bhaa-sticker {
     background-color: #2658db;
   }
   color: white;
-  background-color: $supportBlue;
   font-family: $headline;
   font-size: 18px;
   line-height: 24px;
@@ -76,7 +75,7 @@ bhaa-sticker {
 
   @include breakpoint("tablet") {
     .banner {
-      margin: baseline(23) 0 0 col(.5);
+      margin: 0 0 0 col(.5);
       padding-bottom: baseline(10);
     }
     h3, p {

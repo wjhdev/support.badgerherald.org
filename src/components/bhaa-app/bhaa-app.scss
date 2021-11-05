@@ -16,25 +16,17 @@ h6 {
   font-weight: 700;
 }
 
-h1 {
-  font-size: 54pt;
-}
 
-h2 {
-  font-size: 36pt;
-}
-
-wp-title,
 wp-running-copy {
-  font-size: 1.25em;
   margin-top: 18px;
-  line-height: 1.6em;
+  line-height: baseline(6);
   p,
   img {
+    font-size: size(3);
     margin: 0 0 18px;
   }
 
-
+  
   ul,
   ol {
     line-height: 1.5em;
@@ -88,29 +80,28 @@ bhaa-app {
   ///
   /// Baseline & Grid
   ///
-  @include setGrid(3, 80, 20);
+  @include setGrid(3, 2);
   @include setBaseline(5);
   @include breakpoint("mobilexl") {
-    @include setGrid(6, 80, 20);
+    @include setGrid(6, 2);
     @include setBaseline(6);
   }
   @include breakpoint("tablet") {
-    @include setGrid(9, 80, 20);
+    @include setGrid(9, 2);
     @include setBaseline(5);
   }
   @include breakpoint("desktop") {
-    @include setGrid(12, 80, 20);
+    @include setGrid(12, 2);
     @include setBaseline(5);
   }
   @include breakpoint("xl") {
-    @include setGrid(15, 80, 20);
+    @include setGrid(15, 2);
     @include setBaseline(6);
   }
 
   ///
   /// Wireframe layout
   ///
-
   @include breakpoint("tablet") {
     display: flex;
     align-items: stretch;
@@ -121,15 +112,17 @@ bhaa-app {
     display: block;
     padding-top: baseline(5);
     @include breakpoint("tablet") {
-      @include setCol(6, 1);
+      @include setCol(6);
+      margin-left: col(.25, 2);
       padding-top: baseline(31);
     }
     @include breakpoint("desktop") {
-      @include setCol(6);
+      margin-left: col(.5, 1);
     }
     @include breakpoint("xl") {
+      @include setCol(7);
+      margin-left: col(1,2);
       padding-top: baseline(34);
-      @include setCol(8);
     }
   }
 
@@ -142,7 +135,6 @@ bhaa-app {
     }
 
     @include breakpoint("desktop") {
-      @include setCol(3);
       position: fixed;
     }
   }

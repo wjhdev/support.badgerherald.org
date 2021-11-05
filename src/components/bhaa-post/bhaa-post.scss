@@ -7,7 +7,6 @@ bhaa-post {
     color: #55acee;
     font-weight: bold;
     text-decoration: none;
-    margin-left: 4px;
     &:hover {
       border-top-color: black;
       cursor: pointer;
@@ -38,10 +37,19 @@ bhaa-post {
   .feature-image {
     width: 100%;
     display: block;
-    padding-bottom: 36px;
-    padding-top: 24px;
+    margin-bottom: baseline(8);
+    margin-top: baseline(8);
     img {
-      width: 100%;
+      width: col(3,2);
+      @include breakpoint("mobilexl") {
+        width: col(6,2);
+      }
+      @include breakpoint("xl") {
+        width: col(7,2);
+      }
+      background: rgba(white,.8);
+      padding: gutter();
+      margin-left: gutter(-1);
     }
   }
   wp-author {
@@ -61,10 +69,8 @@ bhaa-post {
 @include breakpoint("tablet") {
   bhaa-post {
     .feature-image {
-      width: 120%;
       display: block;
       position: relative;
-      left: -10%;
     }
   }
 }

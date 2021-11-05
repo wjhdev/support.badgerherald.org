@@ -1,0 +1,36 @@
+bhaa-grid-reveal {
+    display: block;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    .col {
+        position: relative;
+        width: col(1);
+        margin-left: gutter();
+        height: 100%;
+        background: yellow;
+        z-index: 9999;
+        float: left;
+        opacity: .2;
+    }
+    @include breakpoint("tablet") {
+        .col-3 {
+            width: col(.5);
+            background-color: red;
+        }
+        .col-4 {
+            margin-left: col(.25,2);
+        }
+    }
+    @include breakpoint("desktop") {
+        .col-3 {
+            width: col(1);
+            background-color: yellow;
+        }
+        .col-4 {
+            margin-left: gutter(1);
+        }
+    }
+}

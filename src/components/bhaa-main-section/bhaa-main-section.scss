@@ -1,8 +1,10 @@
 bhaa-main-section {
   margin-bottom: 54px;
   display: block;
-  padding: 0 gutter(1);
-  @include breakpoint('tablet') {
-    padding-left: col(.5,1);
+  @include breakpoint('mobilexl') {
+
+  }
+  @include breakpoint('xl') {
+    
   }
 }

@@ -1,5 +1,12 @@
-$colWidth: 80;
-$gutterWidth: 20;
+@use 'sass:math';
+
+$colWidth: 76;
+$gutterWidth: 12;
+
+body {
+  --columnWidth: #{$colWidth};
+  --gutterWidth: #{$gutterWidth};
+}
 
 @function pageWidth($cols: 1) {
   @return (($colWidth * $cols) + ($gutterWidth * ($cols - 1)));
@@ -17,7 +24,12 @@ $gutterWidth: 20;
 }
 
 @function containerWidth($cols, $additionalGutter: 0) {
-  $gutter: "\(#{$cols} - 1 + #{$additionalGutter}\)";
+  $gutter: "";
+  @if type-of($cols) == number {
+    $gutter: "\(#{math.round($cols)} - 1 + #{$additionalGutter}\)";
+  } @else {
+    $gutter: "\(#{$cols} - 1 + #{$additionalGutter}\)";
+  }  
   @return "\(#{columnWidths($cols)} + #{gutterWidths(#{$gutter})}\)";
 }
 
@@ -63,11 +75,9 @@ $gutterWidth: 20;
   }
 }
 
-@mixin setGrid($columnCount, $columnWidth, $gutterWidth, $additionalGutter: 0) {
+@mixin setGrid($columnCount, $additionalGutter: 0) {
   --breakpointColumns: #{$columnCount};
   --additionalGutter: #{$additionalGutter};
-  --gutterWidth: #{$gutterWidth};
-  --columnWidth: #{$columnWidth};
   @include setCol($columnCount, $additionalGutter);
 }
 

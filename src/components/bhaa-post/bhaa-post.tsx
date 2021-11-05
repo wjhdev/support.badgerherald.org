@@ -28,15 +28,15 @@ export class BhaaPost implements QueryContextual {
     }
     return [
       <bhaa-post-breadcrumbs post={this.post} title="Updates" />,
-      <bhaa-wrapper>
+      <bhaa-main-section>
         <div class="update right center">
-          <wp-title post={this.post} />
           <wp-author author={this.author} />
+          <wp-title post={this.post} />
           <wp-media media={this.feature} class="feature-image" />
           <wp-running-copy post={this.post}></wp-running-copy>
         </div>
         <div style={{ clear: "both" }} />
-      </bhaa-wrapper>,
+      </bhaa-main-section>,
     ];
   }
 }

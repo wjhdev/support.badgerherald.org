@@ -1,3 +1,20 @@
+
+// Position—
+bhaa-header {
+  width: 100%;
+  display: block;
+  padding-top: baseline(5);
+  @include breakpoint("tablet") {
+    padding-top: baseline(20);
+    @include setCol(2.5, 1);
+  }
+  @include breakpoint("xl") {
+    padding-top: baseline(24);
+    @include setCol(3, 1);
+  }
+}
+
+// Styling—
 bhaa-header {
   background: #262626;
   header {
@@ -47,19 +64,4 @@ bhaa-header {
     }
   }
 }
-bhaa-header {
-  width: 100%;
-  display: block;
-  padding-top: baseline(5);
-  @include breakpoint("tablet") {
-    padding-top: baseline(20);
-    @include setCol(2.5);
-  }
-  @include breakpoint("desktop") {
-    @include setCol(3);
-  }
-  @include breakpoint("xl") {
-    padding-top: baseline(24);
-    @include setCol(3.5);
-  }
-}
+
