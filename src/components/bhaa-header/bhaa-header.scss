@@ -5,20 +5,25 @@ bhaa-header {
   display: block;
   padding-top: baseline(5);
   @include breakpoint("tablet") {
-    @include setCol(2.5);
+    width: col(2.5);
   }
   @include breakpoint("xl") {
-    @include setCol(3);
+    width: col(3);
   }
+  position: relative;
   header {
     display: block;
+    @include breakpoint("mobilexl") {
+      margin: 0 col(.25, 1);
+    }
     @include breakpoint("tablet") {
-      @include setCol(2.5);
+      width: col(3);
+      margin: 0;
       position: fixed;
       top: baseline(16);
     }
     @include breakpoint("xl") {
-      @include setCol(3);
+      width: col(3);
       position: fixed;
       top: baseline(24);
     }
@@ -50,7 +55,6 @@ bhaa-header {
 }
 }
 
-
 // Mobile—
 bhaa-header {
   wp-menu.toggleable:not(.toggled) {
@@ -78,6 +82,8 @@ bhaa-header {
     }
   }
 }
+}
+
 // Styling—
 bhaa-header {
   background: #262626;
@@ -98,7 +104,6 @@ bhaa-header {
       position: absolute;
       width: baseline(14); // height is relative to width, so use vertical units here:
     }
-    position: relative;
   }
   menu {
     bottom: 0;
@@ -123,4 +128,3 @@ bhaa-header {
     }
   }
 }
-
