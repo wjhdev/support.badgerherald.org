@@ -5,15 +5,79 @@ bhaa-header {
   display: block;
   padding-top: baseline(5);
   @include breakpoint("tablet") {
-    padding-top: baseline(20);
-    @include setCol(2.5, 1);
+    @include setCol(2.5);
   }
   @include breakpoint("xl") {
-    padding-top: baseline(24);
-    @include setCol(3, 1);
+    @include setCol(3);
+  }
+  header {
+    display: block;
+    @include breakpoint("tablet") {
+      @include setCol(2.5);
+      position: fixed;
+      top: baseline(16);
+    }
+    @include breakpoint("xl") {
+      @include setCol(3);
+      position: fixed;
+      top: baseline(24);
+    }
   }
 }
 
+
+@keyframes growDown {
+  0% {
+      transform: scaleY(0)
+  }
+  80% {
+      transform: scaleY(1.1)
+  }
+  100% {
+      transform: scaleY(1)
+  }
+}
+
+@keyframes rotateMenu {
+0% {
+    transform: rotateX(-90deg)
+}
+70% {
+    transform: rotateX(20deg) 
+}
+100% {
+    transform: rotateX(0deg) 
+}
+}
+
+
+// Mobile—
+bhaa-header {
+  wp-menu.toggleable:not(.toggled) {
+    display: none;
+    position: absolute;
+  }
+  wp-menu.togleable {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    perspective: 1000px;
+    animation: growDown 300ms ease-in-out forwards;
+    transform-origin: top center;
+    z-index: -1;
+    li {
+     display: none;
+     color: white;
+     background-color: #34495e;
+     padding: 10px 20px;
+     font-size: 16px;
+     opacity: 0;
+     &:hover {
+       background-color: #2980b9;
+    }
+  }
+}
 // Styling—
 bhaa-header {
   background: #262626;
@@ -23,7 +87,6 @@ bhaa-header {
   header {
     color: #e3ecf3;
     color: $supportBlue;
-    box-sizing: border-box;
     h1 {
       font-size: size(4); 
       line-height: baseline(6);
@@ -46,7 +109,6 @@ bhaa-header {
     margin-left: gutter(-1);
     left: 0;
     li {
-      //display: inline-block;
       a {
         display: inline-block;
         color: white;
@@ -57,9 +119,6 @@ bhaa-header {
         line-height: baseline(5);
         font-size: size(3);
         padding: baseline(1) 20px;
-      }
-      @include breakpoint("tablet") {
-
       }
     }
   }

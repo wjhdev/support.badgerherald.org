@@ -18,6 +18,7 @@ export class BHAAHeader {
     }
     console.log(this.menu);
   }
+
   toggleMobileMenu() {
     this.toggle = !this.toggle
   }
@@ -29,7 +30,7 @@ export class BHAAHeader {
         <h1>Badger Herald <br />
         Alumni Association</h1>
         <a href="#" onClick={_ => this.toggleMobileMenu()} class={this.toggle ? "toggle toggled" : "toggle"}>{this.toggle ? "Hide" : "Menu"}</a>
-        <wp-menu
+        <wp-menu class={this.toggle ? "toggleable toggled" : "toggleable"} 
           query={this.theme.getMenu("main")}
           options={{
             classForMenuItem: (item) =>

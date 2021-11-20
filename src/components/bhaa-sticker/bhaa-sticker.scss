@@ -1,3 +1,5 @@
+
+//Position—
 bhaa-sticker {
   width: 100%;
   position: fixed;
@@ -10,19 +12,23 @@ bhaa-sticker {
   @include breakpoint("desktop") {
     @include setCol(2.5, 1);
     position: fixed;
+    top: baseline(24);
+    right: gutter();
     bottom: inherit;
     bottom: unset;
   }
   @include breakpoint("xl") {
     @include setCol(3, 1);
     position: fixed;
+    top: baseline(32);
   }
 }
 
+//Styling—
 bhaa-sticker {
   .banner {
     position: relative;
-    padding: baseline(3) gutter(1);
+    padding: baseline(2) gutter(1);
     background-color: #2658db;
   }
   color: white;
@@ -59,12 +65,10 @@ bhaa-sticker {
       line-height: size(3);
       margin-bottom: baseline(1);
     }
-
     p {
       display: inline-block;
       width: col(3);
     }
-
     a.button {
       position: absolute;
       right: col(1.5);
@@ -80,7 +84,7 @@ bhaa-sticker {
     }
     h3, p {
       font-size: size(2.5);
-      line-height: size(4);
+      line-height: size(6);
     }
     p {
       width: col(4);
@@ -89,7 +93,6 @@ bhaa-sticker {
 
   @include breakpoint("desktop") {
     .banner {
-      margin: baseline(23) gutter() 0 0;
       padding-bottom: baseline(10);
     }
     p {
@@ -98,13 +101,11 @@ bhaa-sticker {
       margin-bottom: baseline(3);
       width: 100%;
     }
-
     h3 {
       font-size: size(4); 
       line-height: baseline(5);
       margin-bottom: baseline(4);
     }
-
     a.button {
       position: relative;
       right: unset;
@@ -115,7 +116,6 @@ bhaa-sticker {
 
   @include breakpoint("xl") {
     .banner {
-      margin-top: baseline(27);
       padding-bottom: baseline(14);
     }
   }

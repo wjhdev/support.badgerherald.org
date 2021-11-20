@@ -1,4 +1,36 @@
 bhaa-post {
+  display: block;
+  margin-bottom: baseline(48);
+  span.meta {
+    position: absolute;
+    top: baseline(1);
+    line-height: baseline(0);
+    font-size: size(2.75);
+    font-weight: 400;
+    &::after {
+      left: 0;
+      content: "";
+      display: inline-block;
+      width: col(1);
+      height: 3pt;
+      background-color: white;
+      position: absolute;
+      top: baseline(3);
+    }
+    wp-author {
+      font-weight: 600;
+    }
+    color: white;
+  }
+
+  wp-title {
+    margin-top: baseline(2);
+    line-height: baseline(6);
+    font-size: size(3);
+    max-width: col(5);
+    display: block;
+  }
+
   .back a {
     width: 100%;
     display: inline-block;
@@ -53,8 +85,8 @@ bhaa-post {
     }
   }
   wp-author {
-    margin-left: 6px;
     img {
+      display: none;
       position: relative;
       left: -6px;
       top: 7px;
