@@ -4,7 +4,7 @@ bhaa-main {
   h1.main {
     font-style: italic;
     ::before {
-      content: "";
+      content: '';
       display: inline-block;
       width: col(1);
       height: baseline(1);
@@ -20,11 +20,16 @@ bhaa-main {
     font-size: size(6.5);
   }
   h1 span.experiment {
-    
     font-size: size(8.5);
     font-style: normal;
   }
-  @include breakpoint("tablet") {
+
+  h3 {
+    font-size: size(3.75);
+    line-height: baseline(5);
+    margin-bottom: baseline(5);
+  }
+  @include breakpoint('tablet') {
     h1 {
       font-size: size(6.5);
     }
@@ -39,4 +44,3 @@ bhaa-main {
     }
   }
 }
-

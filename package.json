@@ -29,6 +29,7 @@
     "@webpress/core": "file:../webpress/src/packages/core",
     "@webpress/router": "file:../webpress/src/packages/router",
     "@webpress/theme": "file:../webpress/src/packages/theme",
+    "@webpress/features": "file:../webpress/src/packages/features",
     "prettier": "2.3.1"
   }
 }

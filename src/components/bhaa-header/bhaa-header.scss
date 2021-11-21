@@ -1,129 +1,114 @@
-
 // Position—
 bhaa-header {
-  width: 100%;
   display: block;
   padding-top: baseline(5);
-  @include breakpoint("tablet") {
+  position: relative;
+
+  @include breakpoint('tablet') {
     width: col(2.5);
   }
-  @include breakpoint("xl") {
+  @include breakpoint('desktop') {
     width: col(3);
   }
-  position: relative;
-  header {
-    display: block;
-    @include breakpoint("mobilexl") {
-      margin: 0 col(.25, 1);
-    }
-    @include breakpoint("tablet") {
-      width: col(3);
-      margin: 0;
+  width: 100%;
+
+  @include breakpoint('tablet') {
+    header {
+      background-color: orange;
+      & > .mobile-fixed {
+        position: initial;
+      }
+      @include setCol(2.5);
+      @include breakpoint('desktop') {
+        @include setCol(3);
+        position: fixed;
+      }
       position: fixed;
+    }
+  }
+  header h1 {
+    display: block;
+    @include breakpoint('tablet') {
+      padding: 0;
+      margin: 0;
+      position: absolute;
       top: baseline(16);
     }
-    @include breakpoint("xl") {
-      width: col(3);
-      position: fixed;
+    @include breakpoint('xl') {
       top: baseline(24);
     }
   }
-}
-
-
-@keyframes growDown {
-  0% {
-      transform: scaleY(0)
+  header wp-menu {
+    display: block;
+    @include breakpoint('tablet') {
+      margin: 0;
+      position: absolute;
+      top: baseline(42);
+    }
+    @include breakpoint('xl') {
+      top: baseline(54);
+    }
   }
-  80% {
-      transform: scaleY(1.1)
-  }
-  100% {
-      transform: scaleY(1)
-  }
-}
-
-@keyframes rotateMenu {
-0% {
-    transform: rotateX(-90deg)
-}
-70% {
-    transform: rotateX(20deg) 
-}
-100% {
-    transform: rotateX(0deg) 
-}
-}
-
-// Mobile—
-bhaa-header {
-  wp-menu.toggleable:not(.toggled) {
-    display: none;
-    position: absolute;
-  }
-  wp-menu.togleable {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 100%;
-    perspective: 1000px;
-    animation: growDown 300ms ease-in-out forwards;
-    transform-origin: top center;
-    z-index: -1;
-    li {
-     display: none;
-     color: white;
-     background-color: #34495e;
-     padding: 10px 20px;
-     font-size: 16px;
-     opacity: 0;
-     &:hover {
-       background-color: #2980b9;
+  header bhaa-heart-herald {
+    @include breakpoint('tablet') {
+      padding-left: gutter(1);
+      top: baseline(12);
+    }
+    @include breakpoint('xl') {
+      top: baseline(20);
     }
   }
 }
+
+@include breakpoint('mobilexl-and-below') {
+  bhaa-header {
+    header > .mobile-fixed {
+      @include breakpoint('mobile-and-below') {
+        padding: baseline(1) gutter() baseline(1.5);
+      }
+      z-index: 100;
+      bhaa-heart-herald {
+        width: baseline(12);
+        line-height: 0;
+      }
+      position: fixed;
+      top: 0;
+      padding: baseline(1) col(0.25, 2) baseline(1.5);
+      line-height: 0;
+      background: #262626;
+      width: 100%;
+    }
+  }
 }
 
 // Styling—
 bhaa-header {
   background: #262626;
   header {
-    padding: baseline(3) gutter();
-  }
-  header {
     color: #e3ecf3;
     color: $supportBlue;
     h1 {
-      font-size: size(4); 
+      font-size: size(3.75);
       line-height: baseline(6);
       font-weight: 500;
-      letter-spacing: -.2;
-      margin-top: baseline(10);
+      letter-spacing: -0.2;
+      margin-top: baseline(4);
+      padding-left: gutter(1);
+      padding-bottom: baseline(2);
+      @include breakpoint('mobilexl') {
+        padding-left: col(0.25, 2);
+      }
+      @include breakpoint('tablet') {
+        font-size: size(3.5);
+        padding-left: gutter();
+        margin-top: baseline(10);
+      }
     }
-    bhaa-heart-herald {
-      position: absolute;
-      width: baseline(14); // height is relative to width, so use vertical units here:
-    }
-  }
-  menu {
-    bottom: 0;
-    margin-top: baseline(3);
-    list-style-type: none;
-    font-family: $body;
-    width: col(3,2);
-    margin-left: gutter(-1);
-    left: 0;
-    li {
-      a {
-        display: inline-block;
-        color: white;
-        text-decoration: none;
-        font-size: 1em;
-        width: 100%;
-        display: block;
-        line-height: baseline(5);
-        font-size: size(3);
-        padding: baseline(1) 20px;
+    @include breakpoint('tablet') {
+      bhaa-heart-herald {
+        position: absolute;
+        line-height: baseline(14);
+        width: baseline(14);
       }
     }
   }

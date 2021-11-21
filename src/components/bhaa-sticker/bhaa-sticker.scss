@@ -1,15 +1,14 @@
-
 //Position—
 bhaa-sticker {
   width: 100%;
   position: fixed;
   bottom: 0;
   right: 0;
-  @include breakpoint("tablet") {
-    @include setCol(6.5, 1);
+  @include breakpoint('tablet') {
+    @include setCol(7, 1);
     position: fixed;
   }
-  @include breakpoint("desktop") {
+  @include breakpoint('desktop') {
     @include setCol(2.5, 1);
     position: fixed;
     top: baseline(24);
@@ -17,7 +16,7 @@ bhaa-sticker {
     bottom: inherit;
     bottom: unset;
   }
-  @include breakpoint("xl") {
+  @include breakpoint('xl') {
     @include setCol(3, 1);
     position: fixed;
     top: baseline(32);
@@ -50,17 +49,19 @@ bhaa-sticker {
       background-color: #cd1091;
     }
   }
-  
-  h3, p {
+
+  h3,
+  p {
     display: none;
   }
 
-  @include breakpoint("mobilexl") {
+  @include breakpoint('mobilexl') {
     h3 {
       display: block;
       font-style: italic;
     }
-    h3, p {
+    h3,
+    p {
       font-size: size(2);
       line-height: size(3);
       margin-bottom: baseline(1);
@@ -77,21 +78,22 @@ bhaa-sticker {
     }
   }
 
-  @include breakpoint("tablet") {
+  @include breakpoint('tablet') {
     .banner {
-      margin: 0 0 0 col(.5);
+      margin: 0 0 0 col(0.5);
       padding-bottom: baseline(10);
     }
-    h3, p {
+    h3,
+    p {
       font-size: size(2.5);
-      line-height: size(6);
+      line-height: size(4);
     }
     p {
       width: col(4);
     }
   }
 
-  @include breakpoint("desktop") {
+  @include breakpoint('desktop') {
     .banner {
       padding-bottom: baseline(10);
     }
@@ -102,7 +104,7 @@ bhaa-sticker {
       width: 100%;
     }
     h3 {
-      font-size: size(4); 
+      font-size: size(4);
       line-height: baseline(5);
       margin-bottom: baseline(4);
     }
@@ -114,7 +116,7 @@ bhaa-sticker {
     }
   }
 
-  @include breakpoint("xl") {
+  @include breakpoint('xl') {
     .banner {
       padding-bottom: baseline(14);
     }

@@ -5,12 +5,11 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { Menu, Post, Query, Single, Template, Theme } from "@webpress/core";
+import { Post, Query, Single, Template, Theme } from "@webpress/core";
 export namespace Components {
     interface Bhaa404 {
     }
     interface BhaaApp {
-        "menu": Menu;
         "query": Template.Query;
         "theme": Theme;
     }
@@ -35,6 +34,9 @@ export namespace Components {
         "query": Query<Single>;
     }
     interface BhaaMainSection {
+    }
+    interface BhaaMenu {
+        "theme": Theme;
     }
     interface BhaaPage {
         "query": Query<Post>;
@@ -108,6 +110,12 @@ declare global {
         prototype: HTMLBhaaMainSectionElement;
         new (): HTMLBhaaMainSectionElement;
     };
+    interface HTMLBhaaMenuElement extends Components.BhaaMenu, HTMLStencilElement {
+    }
+    var HTMLBhaaMenuElement: {
+        prototype: HTMLBhaaMenuElement;
+        new (): HTMLBhaaMenuElement;
+    };
     interface HTMLBhaaPageElement extends Components.BhaaPage, HTMLStencilElement {
     }
     var HTMLBhaaPageElement: {
@@ -154,6 +162,7 @@ declare global {
         "bhaa-heart-herald": HTMLBhaaHeartHeraldElement;
         "bhaa-main": HTMLBhaaMainElement;
         "bhaa-main-section": HTMLBhaaMainSectionElement;
+        "bhaa-menu": HTMLBhaaMenuElement;
         "bhaa-page": HTMLBhaaPageElement;
         "bhaa-post": HTMLBhaaPostElement;
         "bhaa-post-breadcrumbs": HTMLBhaaPostBreadcrumbsElement;
@@ -166,7 +175,6 @@ declare namespace LocalJSX {
     interface Bhaa404 {
     }
     interface BhaaApp {
-        "menu"?: Menu;
         "query"?: Template.Query;
         "theme"?: Theme;
     }
@@ -191,6 +199,9 @@ declare namespace LocalJSX {
         "query"?: Query<Single>;
     }
     interface BhaaMainSection {
+    }
+    interface BhaaMenu {
+        "theme"?: Theme;
     }
     interface BhaaPage {
         "query"?: Query<Post>;
@@ -218,6 +229,7 @@ declare namespace LocalJSX {
         "bhaa-heart-herald": BhaaHeartHerald;
         "bhaa-main": BhaaMain;
         "bhaa-main-section": BhaaMainSection;
+        "bhaa-menu": BhaaMenu;
         "bhaa-page": BhaaPage;
         "bhaa-post": BhaaPost;
         "bhaa-post-breadcrumbs": BhaaPostBreadcrumbs;
@@ -239,6 +251,7 @@ declare module "@stencil/core" {
             "bhaa-heart-herald": LocalJSX.BhaaHeartHerald & JSXBase.HTMLAttributes<HTMLBhaaHeartHeraldElement>;
             "bhaa-main": LocalJSX.BhaaMain & JSXBase.HTMLAttributes<HTMLBhaaMainElement>;
             "bhaa-main-section": LocalJSX.BhaaMainSection & JSXBase.HTMLAttributes<HTMLBhaaMainSectionElement>;
+            "bhaa-menu": LocalJSX.BhaaMenu & JSXBase.HTMLAttributes<HTMLBhaaMenuElement>;
             "bhaa-page": LocalJSX.BhaaPage & JSXBase.HTMLAttributes<HTMLBhaaPageElement>;
             "bhaa-post": LocalJSX.BhaaPost & JSXBase.HTMLAttributes<HTMLBhaaPostElement>;
             "bhaa-post-breadcrumbs": LocalJSX.BhaaPostBreadcrumbs & JSXBase.HTMLAttributes<HTMLBhaaPostBreadcrumbsElement>;
