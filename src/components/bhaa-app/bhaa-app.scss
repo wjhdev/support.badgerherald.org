@@ -73,9 +73,7 @@ wp-running-copy {
   }
 }
 
-bhaa-app {
-  display: block;
-
+body {
   ///
   /// Baseline & Grid
   ///
@@ -94,7 +92,7 @@ bhaa-app {
   }
   @include breakpoint('desktop') {
     @include setGrid(12, 2);
-    @include setBaseline(5);
+    @include setBaseline(5.5);
     @include breakpoint('desktop-stretch', 40) {
       @include setBaseline(6);
     }
@@ -105,7 +103,14 @@ bhaa-app {
     @include breakpoint('xl-stretch', 40) {
       @include setBaseline(7);
     }
+    @include breakpoint('xl-stretch', 1400) {
+      @include setBaseline(8);
+    }
   }
+}
+
+bhaa-app {
+  display: block;
 
   ///
   /// Wireframe layout

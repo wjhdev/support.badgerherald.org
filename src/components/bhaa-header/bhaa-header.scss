@@ -52,10 +52,10 @@ bhaa-header {
   header bhaa-heart-herald {
     @include breakpoint('tablet') {
       padding-left: gutter(1);
-      top: baseline(12);
+      top: baseline(14);
     }
     @include breakpoint('xl') {
-      top: baseline(20);
+      top: baseline(22);
     }
   }
 }

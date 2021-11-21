@@ -32,6 +32,7 @@ export namespace Components {
     }
     interface BhaaMain {
         "query": Query<Single>;
+        "slug": String;
     }
     interface BhaaMainSection {
     }
@@ -197,6 +198,7 @@ declare namespace LocalJSX {
     }
     interface BhaaMain {
         "query"?: Query<Single>;
+        "slug"?: String;
     }
     interface BhaaMainSection {
     }

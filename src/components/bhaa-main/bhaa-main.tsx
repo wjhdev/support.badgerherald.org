@@ -7,6 +7,7 @@ import { Query, Single, Post, Page, PageQueryArgs } from '@webpress/core'
 })
 export class BhaaMain {
   @Prop() query: Query<Single>
+  @Prop() slug: String
 
   @State() about: Single
   @State() updates: Page
@@ -14,7 +15,14 @@ export class BhaaMain {
   @State() newsletter: Page
   @State() store: Page
 
-  async componentWillUpdate() {
+  updateEl: HTMLElement
+  storeEl: HTMLElement
+  newsletterEl: HTMLElement
+
+  async componentDidLoad() {
+    if (!this.query) {
+      return
+    }
     if (!this.about) {
       this.about = (
         await this.query.connection.request(
@@ -23,7 +31,6 @@ export class BhaaMain {
           }),
         )
       )[0]
-      console.log('about!', this.about)
       this.store = (
         await this.query.connection.request(
           new PageQueryArgs({
@@ -60,6 +67,8 @@ export class BhaaMain {
   }
 
   render() {
+    console.log('SLUGGGG', this.slug)
+    console.log('Rendering bhaa-main', this.query)
     if (!this.about) {
       return
     }
@@ -75,31 +84,50 @@ export class BhaaMain {
         <wp-title class="left absolute" post={this.about} el="h3" />
         <wp-running-copy class="right margin" post={this.about} />
       </bhaa-main-section>,
-      <bhaa-main-section class="updates">
+      <bhaa-main-section ref={el => (this.updateEl = el)} class="updates">
         <wp-title class="left absolute" post={this.updates} />
-        {this.posts.map((post, index) => {
-          if (index > 1) {
-            return
-          }
-          return (
-            <div>
-              <wp-link object={post}>
-                <wp-title class="left absolute" post={post} el="h3" />
-              </wp-link>
-              <wp-date class="left absolute" post={post} />
-            </div>
-          )
-        })}
+        {this.posts
+          ? this.posts.map((post, index) => {
+              if (index > 1) {
+                return
+              }
+              return (
+                <div>
+                  <wp-link object={post}>
+                    <wp-title class="left absolute" post={post} el="h3" />
+                  </wp-link>
+                  <wp-date class="left absolute" post={post} />
+                </div>
+              )
+            })
+          : ''}
       </bhaa-main-section>,
       <bhaa-main-section>
-        <wp-title class="left absolute" post={this.newsletter} el="h1" />
+        <wp-title
+          class="left absolute"
+          ref={el => (this.newsletterEl = el)}
+          post={this.newsletter}
+          el="h1"
+        />
         <wp-running-copy class="right margin" post={this.newsletter} />
       </bhaa-main-section>,
-      <bhaa-main-section>
+      <bhaa-main-section ref={el => (this.storeEl = el)}>
         <wp-title class="left absolute" post={this.store} el="h1" />
         <wp-running-copy class="right margin" post={this.store} />
         <bhaa-qzip />
       </bhaa-main-section>,
     ]
+  }
+
+  componentDidRender() {
+    if (this.slug == 'store') {
+      window.scrollTo(0, this.storeEl.offsetTop)
+    }
+    if (this.slug == 'updates') {
+      window.scrollTo(0, this.updateEl.offsetTop)
+    }
+    if (this.slug == 'newsletter') {
+      window.scrollTo(0, this.newsletterEl.offsetTop)
+    }
   }
 }

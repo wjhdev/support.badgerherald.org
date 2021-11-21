@@ -26,10 +26,12 @@
     "@stencil/core": "^2.10.0",
     "@stencil/router": "^1.0.1",
     "@stencil/sass": "^1.4.1",
+    "@types/shopify-buy": "^2.10.8",
     "@webpress/core": "file:../webpress/src/packages/core",
+    "@webpress/features": "file:../webpress/src/packages/features",
     "@webpress/router": "file:../webpress/src/packages/router",
     "@webpress/theme": "file:../webpress/src/packages/theme",
-    "@webpress/features": "file:../webpress/src/packages/features",
-    "prettier": "2.3.1"
+    "prettier": "2.3.1",
+    "shopify-buy": "^2.13.0"
   }
 }
