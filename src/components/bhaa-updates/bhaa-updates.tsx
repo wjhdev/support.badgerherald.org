@@ -1,5 +1,5 @@
-import { Component, h, Prop, Listen, State } from '@stencil/core';
-import { Query, Single } from '@webpress/core';
+import { Component, h, Prop, Listen, State } from '@stencil/core'
+import { Query, Single } from '@webpress/core'
 
 @Component({
   tag: 'bhaa-updates',
@@ -8,40 +8,40 @@ import { Query, Single } from '@webpress/core';
 export class BHAAUpdates {
   @Prop() query: Query<Single>
 
-  @State() mobile : boolean = false;
+  @State() mobile: boolean = false
 
-  private posts : Single[]
+  private posts: Single[]
 
   async componentWillRender() {
-    if(!this.query) {
+    if (!this.query) {
       return
     }
     this.posts = await this.query.results
   }
 
   @Listen('breakpointChanged', { target: 'window' })
-  breakpointChanged(event : CustomEvent<number>) {
-    this.mobile = (event.detail === 1)
+  breakpointChanged(event: CustomEvent<number>) {
+    this.mobile = event.detail === 1
   }
 
   renderSidebar() {
-    return 
+    return
   }
 
   render() {
-    if(!this.posts) {
+    if (!this.posts) {
       return
     }
     return (
-      <bhaa-wrapper class="donate">  
+      <bhaa-wrapper>
         {this.renderSidebar()}
         <ol class="posts center right">
-          {this.posts.map(post => 
+          {this.posts.map(post => (
             <li>
-            <wp-title post={post} permalink={true}></wp-title>
-            <bhaa-expanding-copy post={post}></bhaa-expanding-copy>
+              <wp-title post={post} permalink={true}></wp-title>
+              <bhaa-expanding-copy post={post}></bhaa-expanding-copy>
             </li>
-          )}
+          ))}
         </ol>
       </bhaa-wrapper>
     )

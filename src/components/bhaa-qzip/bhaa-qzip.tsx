@@ -1,9 +1,10 @@
-import { Component, h } from '@stencil/core'
+import { Component, h, State } from '@stencil/core'
 
 declare const ShopifyBuy
 
 @Component({
   tag: 'bhaa-qzip',
+  styleUrl: 'bhaa-qzip.scss',
 })
 export class Thing {
   private scriptURL =
@@ -11,8 +12,14 @@ export class Thing {
 
   private client: ShopifyBuy.Client
 
+  @State() isLoading: boolean = true
+
   render() {
-    return <div id="product-component-1635619604428"></div>
+    console.log('RENDERING', this.isLoading)
+    return [
+      <div id="product-component-1635619604428"></div>,
+      <bhaa-loading-spinner />,
+    ]
   }
 
   loadScript() {
@@ -44,7 +51,10 @@ export class Thing {
       domain: 'store.badgerherald.org',
       storefrontAccessToken: '646756802c54f105cdf0f9958ba72969',
     })
-    ShopifyBuy.UI.onReady(this.client).then(function (ui) {
+    let callback = function (ui) {
+      console.log(ui)
+      console.log('FALSE NOW', this)
+      this.isLoading = false
       ui.createComponent('product', {
         id: '6599592181921',
         node: document.getElementById('product-component-1635619604428'),
@@ -247,6 +257,8 @@ export class Thing {
           },
         },
       })
-    })
+    }.bind(this)
+
+    ShopifyBuy.UI.onReady(this.client).then(callback)
   }
 }

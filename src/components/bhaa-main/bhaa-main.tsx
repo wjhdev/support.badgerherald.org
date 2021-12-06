@@ -67,8 +67,6 @@ export class BhaaMain {
   }
 
   render() {
-    console.log('SLUGGGG', this.slug)
-    console.log('Rendering bhaa-main', this.query)
     if (!this.about) {
       return
     }
@@ -120,7 +118,7 @@ export class BhaaMain {
   }
 
   componentDidRender() {
-    if (this.slug == 'store') {
+    if (this.slug == 'store' && this.storeEl) {
       window.scrollTo(0, this.storeEl.offsetTop)
     }
     if (this.slug == 'updates') {

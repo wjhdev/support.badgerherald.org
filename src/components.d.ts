@@ -30,6 +30,8 @@ export namespace Components {
     interface BhaaHeartHerald {
         "theme": Theme;
     }
+    interface BhaaLoadingSpinner {
+    }
     interface BhaaMain {
         "query": Query<Single>;
         "slug": String;
@@ -99,6 +101,12 @@ declare global {
         prototype: HTMLBhaaHeartHeraldElement;
         new (): HTMLBhaaHeartHeraldElement;
     };
+    interface HTMLBhaaLoadingSpinnerElement extends Components.BhaaLoadingSpinner, HTMLStencilElement {
+    }
+    var HTMLBhaaLoadingSpinnerElement: {
+        prototype: HTMLBhaaLoadingSpinnerElement;
+        new (): HTMLBhaaLoadingSpinnerElement;
+    };
     interface HTMLBhaaMainElement extends Components.BhaaMain, HTMLStencilElement {
     }
     var HTMLBhaaMainElement: {
@@ -161,6 +169,7 @@ declare global {
         "bhaa-grid-reveal": HTMLBhaaGridRevealElement;
         "bhaa-header": HTMLBhaaHeaderElement;
         "bhaa-heart-herald": HTMLBhaaHeartHeraldElement;
+        "bhaa-loading-spinner": HTMLBhaaLoadingSpinnerElement;
         "bhaa-main": HTMLBhaaMainElement;
         "bhaa-main-section": HTMLBhaaMainSectionElement;
         "bhaa-menu": HTMLBhaaMenuElement;
@@ -196,6 +205,8 @@ declare namespace LocalJSX {
     interface BhaaHeartHerald {
         "theme"?: Theme;
     }
+    interface BhaaLoadingSpinner {
+    }
     interface BhaaMain {
         "query"?: Query<Single>;
         "slug"?: String;
@@ -229,6 +240,7 @@ declare namespace LocalJSX {
         "bhaa-grid-reveal": BhaaGridReveal;
         "bhaa-header": BhaaHeader;
         "bhaa-heart-herald": BhaaHeartHerald;
+        "bhaa-loading-spinner": BhaaLoadingSpinner;
         "bhaa-main": BhaaMain;
         "bhaa-main-section": BhaaMainSection;
         "bhaa-menu": BhaaMenu;
@@ -251,6 +263,7 @@ declare module "@stencil/core" {
             "bhaa-grid-reveal": LocalJSX.BhaaGridReveal & JSXBase.HTMLAttributes<HTMLBhaaGridRevealElement>;
             "bhaa-header": LocalJSX.BhaaHeader & JSXBase.HTMLAttributes<HTMLBhaaHeaderElement>;
             "bhaa-heart-herald": LocalJSX.BhaaHeartHerald & JSXBase.HTMLAttributes<HTMLBhaaHeartHeraldElement>;
+            "bhaa-loading-spinner": LocalJSX.BhaaLoadingSpinner & JSXBase.HTMLAttributes<HTMLBhaaLoadingSpinnerElement>;
             "bhaa-main": LocalJSX.BhaaMain & JSXBase.HTMLAttributes<HTMLBhaaMainElement>;
             "bhaa-main-section": LocalJSX.BhaaMainSection & JSXBase.HTMLAttributes<HTMLBhaaMainSectionElement>;
             "bhaa-menu": LocalJSX.BhaaMenu & JSXBase.HTMLAttributes<HTMLBhaaMenuElement>;
