@@ -9,6 +9,10 @@ import { Post, Query, Single, Template, Theme } from "@webpress/core";
 export namespace Components {
     interface Bhaa404 {
     }
+    interface BhaaApp {
+        "query": Template.Query;
+        "theme": Theme;
+    }
     interface BhaaExpandingCopy {
         "linkText": string;
         "post": Single;
@@ -17,14 +21,24 @@ export namespace Components {
         "query": Template.Query;
         "theme": Theme;
     }
-    interface BhaaFrontPage {
-        "query": Query<Single>;
+    interface BhaaGridReveal {
     }
     interface BhaaHeader {
         "query": Template.Query;
         "theme": Theme;
     }
     interface BhaaHeartHerald {
+        "theme": Theme;
+    }
+    interface BhaaLoadingSpinner {
+    }
+    interface BhaaMain {
+        "query": Query<Single>;
+        "slug": String;
+    }
+    interface BhaaMainSection {
+    }
+    interface BhaaMenu {
         "theme": Theme;
     }
     interface BhaaPage {
@@ -34,16 +48,14 @@ export namespace Components {
         "query": Query<Post>;
     }
     interface BhaaPostBreadcrumbs {
-        "post": Post;
+        "post": Single;
     }
-    interface BhaaRoot {
-        "query": Template.Query;
-        "theme": Theme;
+    interface BhaaQzip {
+    }
+    interface BhaaSticker {
     }
     interface BhaaUpdates {
         "query": Query<Single>;
-    }
-    interface BhaaWrapper {
     }
 }
 declare global {
@@ -52,6 +64,12 @@ declare global {
     var HTMLBhaa404Element: {
         prototype: HTMLBhaa404Element;
         new (): HTMLBhaa404Element;
+    };
+    interface HTMLBhaaAppElement extends Components.BhaaApp, HTMLStencilElement {
+    }
+    var HTMLBhaaAppElement: {
+        prototype: HTMLBhaaAppElement;
+        new (): HTMLBhaaAppElement;
     };
     interface HTMLBhaaExpandingCopyElement extends Components.BhaaExpandingCopy, HTMLStencilElement {
     }
@@ -65,11 +83,11 @@ declare global {
         prototype: HTMLBhaaFooterElement;
         new (): HTMLBhaaFooterElement;
     };
-    interface HTMLBhaaFrontPageElement extends Components.BhaaFrontPage, HTMLStencilElement {
+    interface HTMLBhaaGridRevealElement extends Components.BhaaGridReveal, HTMLStencilElement {
     }
-    var HTMLBhaaFrontPageElement: {
-        prototype: HTMLBhaaFrontPageElement;
-        new (): HTMLBhaaFrontPageElement;
+    var HTMLBhaaGridRevealElement: {
+        prototype: HTMLBhaaGridRevealElement;
+        new (): HTMLBhaaGridRevealElement;
     };
     interface HTMLBhaaHeaderElement extends Components.BhaaHeader, HTMLStencilElement {
     }
@@ -82,6 +100,30 @@ declare global {
     var HTMLBhaaHeartHeraldElement: {
         prototype: HTMLBhaaHeartHeraldElement;
         new (): HTMLBhaaHeartHeraldElement;
+    };
+    interface HTMLBhaaLoadingSpinnerElement extends Components.BhaaLoadingSpinner, HTMLStencilElement {
+    }
+    var HTMLBhaaLoadingSpinnerElement: {
+        prototype: HTMLBhaaLoadingSpinnerElement;
+        new (): HTMLBhaaLoadingSpinnerElement;
+    };
+    interface HTMLBhaaMainElement extends Components.BhaaMain, HTMLStencilElement {
+    }
+    var HTMLBhaaMainElement: {
+        prototype: HTMLBhaaMainElement;
+        new (): HTMLBhaaMainElement;
+    };
+    interface HTMLBhaaMainSectionElement extends Components.BhaaMainSection, HTMLStencilElement {
+    }
+    var HTMLBhaaMainSectionElement: {
+        prototype: HTMLBhaaMainSectionElement;
+        new (): HTMLBhaaMainSectionElement;
+    };
+    interface HTMLBhaaMenuElement extends Components.BhaaMenu, HTMLStencilElement {
+    }
+    var HTMLBhaaMenuElement: {
+        prototype: HTMLBhaaMenuElement;
+        new (): HTMLBhaaMenuElement;
     };
     interface HTMLBhaaPageElement extends Components.BhaaPage, HTMLStencilElement {
     }
@@ -101,11 +143,17 @@ declare global {
         prototype: HTMLBhaaPostBreadcrumbsElement;
         new (): HTMLBhaaPostBreadcrumbsElement;
     };
-    interface HTMLBhaaRootElement extends Components.BhaaRoot, HTMLStencilElement {
+    interface HTMLBhaaQzipElement extends Components.BhaaQzip, HTMLStencilElement {
     }
-    var HTMLBhaaRootElement: {
-        prototype: HTMLBhaaRootElement;
-        new (): HTMLBhaaRootElement;
+    var HTMLBhaaQzipElement: {
+        prototype: HTMLBhaaQzipElement;
+        new (): HTMLBhaaQzipElement;
+    };
+    interface HTMLBhaaStickerElement extends Components.BhaaSticker, HTMLStencilElement {
+    }
+    var HTMLBhaaStickerElement: {
+        prototype: HTMLBhaaStickerElement;
+        new (): HTMLBhaaStickerElement;
     };
     interface HTMLBhaaUpdatesElement extends Components.BhaaUpdates, HTMLStencilElement {
     }
@@ -113,29 +161,32 @@ declare global {
         prototype: HTMLBhaaUpdatesElement;
         new (): HTMLBhaaUpdatesElement;
     };
-    interface HTMLBhaaWrapperElement extends Components.BhaaWrapper, HTMLStencilElement {
-    }
-    var HTMLBhaaWrapperElement: {
-        prototype: HTMLBhaaWrapperElement;
-        new (): HTMLBhaaWrapperElement;
-    };
     interface HTMLElementTagNameMap {
         "bhaa-404": HTMLBhaa404Element;
+        "bhaa-app": HTMLBhaaAppElement;
         "bhaa-expanding-copy": HTMLBhaaExpandingCopyElement;
         "bhaa-footer": HTMLBhaaFooterElement;
-        "bhaa-front-page": HTMLBhaaFrontPageElement;
+        "bhaa-grid-reveal": HTMLBhaaGridRevealElement;
         "bhaa-header": HTMLBhaaHeaderElement;
         "bhaa-heart-herald": HTMLBhaaHeartHeraldElement;
+        "bhaa-loading-spinner": HTMLBhaaLoadingSpinnerElement;
+        "bhaa-main": HTMLBhaaMainElement;
+        "bhaa-main-section": HTMLBhaaMainSectionElement;
+        "bhaa-menu": HTMLBhaaMenuElement;
         "bhaa-page": HTMLBhaaPageElement;
         "bhaa-post": HTMLBhaaPostElement;
         "bhaa-post-breadcrumbs": HTMLBhaaPostBreadcrumbsElement;
-        "bhaa-root": HTMLBhaaRootElement;
+        "bhaa-qzip": HTMLBhaaQzipElement;
+        "bhaa-sticker": HTMLBhaaStickerElement;
         "bhaa-updates": HTMLBhaaUpdatesElement;
-        "bhaa-wrapper": HTMLBhaaWrapperElement;
     }
 }
 declare namespace LocalJSX {
     interface Bhaa404 {
+    }
+    interface BhaaApp {
+        "query"?: Template.Query;
+        "theme"?: Theme;
     }
     interface BhaaExpandingCopy {
         "linkText"?: string;
@@ -145,14 +196,24 @@ declare namespace LocalJSX {
         "query"?: Template.Query;
         "theme"?: Theme;
     }
-    interface BhaaFrontPage {
-        "query"?: Query<Single>;
+    interface BhaaGridReveal {
     }
     interface BhaaHeader {
         "query"?: Template.Query;
         "theme"?: Theme;
     }
     interface BhaaHeartHerald {
+        "theme"?: Theme;
+    }
+    interface BhaaLoadingSpinner {
+    }
+    interface BhaaMain {
+        "query"?: Query<Single>;
+        "slug"?: String;
+    }
+    interface BhaaMainSection {
+    }
+    interface BhaaMenu {
         "theme"?: Theme;
     }
     interface BhaaPage {
@@ -162,31 +223,33 @@ declare namespace LocalJSX {
         "query"?: Query<Post>;
     }
     interface BhaaPostBreadcrumbs {
-        "post"?: Post;
+        "post"?: Single;
     }
-    interface BhaaRoot {
-        "query"?: Template.Query;
-        "theme"?: Theme;
+    interface BhaaQzip {
+    }
+    interface BhaaSticker {
     }
     interface BhaaUpdates {
         "query"?: Query<Single>;
     }
-    interface BhaaWrapper {
-        "onBreakpointChanged"?: (event: CustomEvent<number>) => void;
-    }
     interface IntrinsicElements {
         "bhaa-404": Bhaa404;
+        "bhaa-app": BhaaApp;
         "bhaa-expanding-copy": BhaaExpandingCopy;
         "bhaa-footer": BhaaFooter;
-        "bhaa-front-page": BhaaFrontPage;
+        "bhaa-grid-reveal": BhaaGridReveal;
         "bhaa-header": BhaaHeader;
         "bhaa-heart-herald": BhaaHeartHerald;
+        "bhaa-loading-spinner": BhaaLoadingSpinner;
+        "bhaa-main": BhaaMain;
+        "bhaa-main-section": BhaaMainSection;
+        "bhaa-menu": BhaaMenu;
         "bhaa-page": BhaaPage;
         "bhaa-post": BhaaPost;
         "bhaa-post-breadcrumbs": BhaaPostBreadcrumbs;
-        "bhaa-root": BhaaRoot;
+        "bhaa-qzip": BhaaQzip;
+        "bhaa-sticker": BhaaSticker;
         "bhaa-updates": BhaaUpdates;
-        "bhaa-wrapper": BhaaWrapper;
     }
 }
 export { LocalJSX as JSX };
@@ -194,17 +257,22 @@ declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
             "bhaa-404": LocalJSX.Bhaa404 & JSXBase.HTMLAttributes<HTMLBhaa404Element>;
+            "bhaa-app": LocalJSX.BhaaApp & JSXBase.HTMLAttributes<HTMLBhaaAppElement>;
             "bhaa-expanding-copy": LocalJSX.BhaaExpandingCopy & JSXBase.HTMLAttributes<HTMLBhaaExpandingCopyElement>;
             "bhaa-footer": LocalJSX.BhaaFooter & JSXBase.HTMLAttributes<HTMLBhaaFooterElement>;
-            "bhaa-front-page": LocalJSX.BhaaFrontPage & JSXBase.HTMLAttributes<HTMLBhaaFrontPageElement>;
+            "bhaa-grid-reveal": LocalJSX.BhaaGridReveal & JSXBase.HTMLAttributes<HTMLBhaaGridRevealElement>;
             "bhaa-header": LocalJSX.BhaaHeader & JSXBase.HTMLAttributes<HTMLBhaaHeaderElement>;
             "bhaa-heart-herald": LocalJSX.BhaaHeartHerald & JSXBase.HTMLAttributes<HTMLBhaaHeartHeraldElement>;
+            "bhaa-loading-spinner": LocalJSX.BhaaLoadingSpinner & JSXBase.HTMLAttributes<HTMLBhaaLoadingSpinnerElement>;
+            "bhaa-main": LocalJSX.BhaaMain & JSXBase.HTMLAttributes<HTMLBhaaMainElement>;
+            "bhaa-main-section": LocalJSX.BhaaMainSection & JSXBase.HTMLAttributes<HTMLBhaaMainSectionElement>;
+            "bhaa-menu": LocalJSX.BhaaMenu & JSXBase.HTMLAttributes<HTMLBhaaMenuElement>;
             "bhaa-page": LocalJSX.BhaaPage & JSXBase.HTMLAttributes<HTMLBhaaPageElement>;
             "bhaa-post": LocalJSX.BhaaPost & JSXBase.HTMLAttributes<HTMLBhaaPostElement>;
             "bhaa-post-breadcrumbs": LocalJSX.BhaaPostBreadcrumbs & JSXBase.HTMLAttributes<HTMLBhaaPostBreadcrumbsElement>;
-            "bhaa-root": LocalJSX.BhaaRoot & JSXBase.HTMLAttributes<HTMLBhaaRootElement>;
+            "bhaa-qzip": LocalJSX.BhaaQzip & JSXBase.HTMLAttributes<HTMLBhaaQzipElement>;
+            "bhaa-sticker": LocalJSX.BhaaSticker & JSXBase.HTMLAttributes<HTMLBhaaStickerElement>;
             "bhaa-updates": LocalJSX.BhaaUpdates & JSXBase.HTMLAttributes<HTMLBhaaUpdatesElement>;
-            "bhaa-wrapper": LocalJSX.BhaaWrapper & JSXBase.HTMLAttributes<HTMLBhaaWrapperElement>;
         }
     }
 }

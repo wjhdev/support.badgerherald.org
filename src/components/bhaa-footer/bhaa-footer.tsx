@@ -15,8 +15,8 @@ export class BHAAHeader {
   render() {
     return (
       <div>
-        <bhaa-heart-herald theme={this.theme} />© Copyright 2020 · Powered by
-        WordPress
+        All content &copy; BHAA 2020-2021  <br />
+        Site powered by WordPress <br />
       </div>
     );
   }

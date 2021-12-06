@@ -12,6 +12,8 @@ function bh_support_amazon_inline_embed( $matches, $attr, $url, $rawattr ) {
 }
 wp_embed_register_handler( 'exa-inline-link', '*(?:http|https)://amazon.com/*', 'bh_support_amazon_inline_embed' );
 
+remove_filter('template_redirect','redirect_canonical');
+
 /*
 
 <iframe 

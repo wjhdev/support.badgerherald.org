@@ -1,0 +1,190 @@
+//Position—
+bhaa-sticker {
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  @include breakpoint('tablet') {
+    @include setCol(7, 1);
+    position: fixed;
+  }
+  @include breakpoint('desktop') {
+    @include setCol(2.5, 1);
+    position: fixed;
+    top: baseline(24);
+    right: gutter();
+    bottom: inherit;
+    bottom: unset;
+  }
+  @include breakpoint('xl') {
+    @include setCol(3, 1);
+    position: fixed;
+    top: baseline(32);
+  }
+}
+
+.shopify-buy__cart-toggle {
+  display: block;
+  background-color: #eb4034;
+  color: white;
+  border-radius: 4px;
+  width: 100%;
+  position: relative;
+  padding: baseline(2) gutter();
+  line-height: baseline(4);
+  .shopify-buy__cart-toggle__count {
+    display: none;
+  }
+  & > p.shopify-buy--visually-hidden {
+    position: relative;
+    left: baseline(4);
+    font-family: $body;
+    font-weight: 700;
+    font-size: size(3);
+  }
+  svg {
+    width: baseline(4);
+    position: absolute;
+    left: gutter(0.5);
+    g {
+      fill: white;
+    }
+  }
+}
+
+.shopify-buy-frame--toggle.is-sticky {
+  position: fixed;
+  top: inherit !important;
+  transform: inherit !important;
+  bottom: baseline(2) !important;
+  @include setCol(1, 1);
+
+  margin-right: gutter(1);
+  height: inherit;
+
+  font-size: size(3);
+  right: 0 !important;
+  @include breakpoint('mobilexl') {
+    @include setCol(2, 1);
+  }
+  @include breakpoint('tablet') {
+    @include setCol(2, 1);
+  }
+  @include breakpoint('desktop') {
+    @include setCol(2, 2);
+    padding: gutter(1);
+    bottom: 0 !important;
+    background: #2658db;
+    display: block;
+  }
+}
+
+//Styling—
+bhaa-sticker {
+  .banner {
+    position: relative;
+    padding: baseline(2) gutter(1);
+    background-color: #2658db;
+  }
+  color: white;
+  font-family: $headline;
+  font-size: 18px;
+  line-height: baseline(4);
+  a.button {
+    width: col(2);
+    display: inline-block;
+    background-color: $supportBlue;
+    text-decoration: none;
+    font-family: $body;
+    font-weight: 700;
+    font-size: size(3);
+    color: white;
+    padding: baseline(2) gutter();
+
+    border-radius: 3px;
+    &:hover {
+      background-color: #cd1091;
+    }
+  }
+
+  h3,
+  p {
+    display: none;
+  }
+
+  @include breakpoint('mobilexl') {
+    .banner {
+      height: baseline(22);
+    }
+    h3 {
+      display: block;
+      font-style: italic;
+    }
+    h3,
+    p {
+      line-height: size(3);
+      margin-bottom: baseline(1);
+    }
+    p {
+      display: inline-block;
+      font-size: size(2.5);
+      width: col(4);
+    }
+    h3 {
+      font-size: size(3.5);
+    }
+    a.button {
+      position: absolute;
+      right: gutter();
+      top: baseline(2);
+      width: col(2);
+    }
+  }
+
+  @include breakpoint('tablet') {
+    .banner {
+      margin: 0 0 0 col(0.5);
+      height: inherit;
+    }
+    h3,
+    p {
+      line-height: size(4);
+    }
+    p {
+      font-size: size(2.5);
+      width: col(4);
+    }
+    h3 {
+      font-size: size(3.5);
+    }
+  }
+
+  @include breakpoint('desktop') {
+    .banner {
+      padding-bottom: baseline(10);
+    }
+    p {
+      font-size: size(2.5);
+      line-height: size(4);
+      margin-bottom: baseline(3);
+      width: 100%;
+    }
+    h3 {
+      font-size: size(4);
+      line-height: baseline(5);
+      margin-bottom: baseline(4);
+    }
+    a.button {
+      position: relative;
+      right: unset;
+      bottom: 0;
+      width: unset;
+    }
+  }
+
+  @include breakpoint('xl') {
+    .banner {
+      padding-bottom: baseline(14);
+    }
+  }
+}

@@ -1,0 +1,19 @@
+/***
+ * Baseline
+ */
+@function baseline($num) {
+  @return calc(var(--baseline) * #{$num}pt);
+}
+
+@function size($relPts) {
+  @return calc(var(--baseline) * #{$relPts}pt);
+}
+
+@mixin setBaseline($baseline) {
+  & *,
+  &:after,
+  &:before {
+    --baseline: #{$baseline};
+  }
+}
+

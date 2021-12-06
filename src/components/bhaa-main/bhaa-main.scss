@@ -1,0 +1,52 @@
+bhaa-main {
+  width: 100%;
+  padding-bottom: 600px;
+  h1.main {
+    font-style: italic;
+    ::before {
+      content: '';
+      display: inline-block;
+      width: col(1);
+      height: baseline(1);
+      background-color: black;
+      position: absolute;
+      top: baseline(-8);
+    }
+  }
+  h1 {
+    color: white;
+    position: relative;
+    line-height: baseline(9);
+    font-size: size(6.5);
+  }
+  h1 span.experiment {
+    font-size: size(8.5);
+    font-style: normal;
+  }
+
+  h3 {
+    font-size: size(3.75);
+    line-height: baseline(5);
+    margin-bottom: baseline(5);
+  }
+  @include breakpoint('tablet') {
+    h1 {
+      font-size: size(6.5);
+    }
+    h1 span.experiment {
+      font-size: size(8.5);
+    }
+  }
+
+  .updates {
+    color: white;
+    h3 {
+      margin-bottom: baseline(0);
+      margin-top: baseline(6);
+    }
+    a {
+      color: black;
+      text-decoration: none;
+    }
+  }
+}

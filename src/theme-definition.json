@@ -1,7 +1,7 @@
 {
     "name": "Webpress",
     "folder": "webpress",
-    "root": "bhaa-root",
+    "root": "bhaa-app",
     "menus" : [
         "main", 
         "secondary"

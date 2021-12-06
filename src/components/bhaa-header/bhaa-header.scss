@@ -1,86 +1,114 @@
+// Position—
 bhaa-header {
-  header {
-    width: 100%;
-    background: #262626;
-    text-align: center;
-    color: #e3ecf3;
-    box-sizing: border-box;
-    padding: 48px 20px 85px;
-    h2 {
-      font-size: 1.1em;
-      font-weight: 600;
-      font-family: "Whitney Narrow SSm A", "Whitney Narrow SSm B";
-      opacity: 0.4;
-      padding-bottom: 6px;
-    }
-    h1 {
-      font-size: 1.8em;
-      line-height: 1.2em;
-      margin-bottom: 12px;
-    }
-    bhaa-heart-herald {
-      width: 80px;
-    }
-    position: relative;
+  display: block;
+  padding-top: baseline(5);
+  position: relative;
+
+  @include breakpoint('tablet') {
+    width: col(2.5);
   }
-  menu {
-    position: absolute;
-    bottom: 0;
-    list-style-type: none;
-    display: inline-block;
-    text-align: center;
-    width: 100%;
-    font-family: "Whitney Narrow SSm A", "Whitney Narrow SSm B";
-    left: 0;
-    li {
-      display: inline-block;
-      a {
-        color: white;
-        font-weight: 600;
-        text-decoration: none;
-        font-size: 1em;
-        display: inline-block;
-        padding: 8px 12px;
-        margin: 0 2px;
+  @include breakpoint('desktop') {
+    width: col(3);
+  }
+  width: 100%;
+
+  @include breakpoint('tablet') {
+    header {
+      background-color: orange;
+      & > .mobile-fixed {
+        position: initial;
       }
-      &.active a {
-        background: rgba(#e3ecf3, 1);
-        color: #262626;
+      @include setCol(2.5);
+      @include breakpoint('desktop') {
+        @include setCol(3);
+        position: fixed;
       }
-      &:not(.active):not(.donate) a:hover {
-        background: rgba(#e3ecf3, 0.2);
-        color: #55acee;
-      }
-      &.donate a {
-        background: #55acee;
-        color: white;
-      }
-      &.donate a:hover {
-        background: rgb(68, 142, 199);
-      }
+      position: fixed;
+    }
+  }
+  header h1 {
+    display: block;
+    @include breakpoint('tablet') {
+      padding: 0;
+      margin: 0;
+      position: absolute;
+      top: baseline(16);
+    }
+    @include breakpoint('xl') {
+      top: baseline(24);
+    }
+  }
+  header wp-menu {
+    display: block;
+    @include breakpoint('tablet') {
+      margin: 0;
+      position: absolute;
+      top: baseline(42);
+    }
+    @include breakpoint('xl') {
+      top: baseline(54);
+    }
+  }
+  header bhaa-heart-herald {
+    @include breakpoint('tablet') {
+      padding-left: gutter(1);
+      top: baseline(14);
+    }
+    @include breakpoint('xl') {
+      top: baseline(22);
     }
   }
 }
 
-@media (min-width: 500px) {
+@include breakpoint('mobilexl-and-below') {
   bhaa-header {
-    header {
-      h2 {
-        font-size: 1.3em;
+    header > .mobile-fixed {
+      @include breakpoint('mobile-and-below') {
+        padding: baseline(1) gutter() baseline(1.5);
       }
-      h1 {
-        font-size: 2.4em;
-      }
+      z-index: 100;
       bhaa-heart-herald {
-        width: 100px;
+        width: baseline(12);
+        line-height: 0;
+      }
+      position: fixed;
+      top: 0;
+      padding: baseline(1) col(0.25, 2) baseline(1.5);
+      line-height: 0;
+      background: #262626;
+      width: 100%;
+    }
+  }
+}
+
+// Styling—
+bhaa-header {
+  background: #262626;
+  header {
+    color: #e3ecf3;
+    color: $supportBlue;
+    h1 {
+      font-size: size(3.75);
+      line-height: baseline(6);
+      font-weight: 500;
+      letter-spacing: -0.2;
+      margin-top: baseline(4);
+      padding-left: gutter(1);
+      padding-bottom: baseline(2);
+      @include breakpoint('mobilexl') {
+        padding-left: col(0.25, 2);
+      }
+      @include breakpoint('tablet') {
+        font-size: size(3.5);
+        padding-left: gutter();
+        margin-top: baseline(10);
       }
     }
-    menu {
-      li {
-        a {
-          font-size: 1.2em;
-          padding: 8px 20px;
-        }
+    @include breakpoint('tablet') {
+      bhaa-heart-herald {
+        position: absolute;
+        line-height: baseline(14);
+        width: baseline(14);
       }
     }
   }
