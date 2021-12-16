@@ -12,7 +12,7 @@ export class BHAASticker {
       <bhaa-top-buffer>
         <h3>Before you leave</h3>
       </bhaa-top-buffer>
-      <p>The Badger Herald depended on community support from sustainers, local community advertisers <strong>and alumni like you</strong>!</p>
+      <p>The Badger Herald depends on community support from sustainers, local community advertisers <strong>and alumni like you</strong>!</p>
     <a class="button" href="https://badgerherald.com/donate">
     Donate
   </a>
