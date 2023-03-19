@@ -10,7 +10,7 @@ export namespace Components {
     interface Bhaa404 {
     }
     interface BhaaApp {
-        "query": Template.Query;
+        "query": Query<Template>;
         "theme": Theme;
     }
     interface BhaaExpandingCopy {
@@ -18,13 +18,13 @@ export namespace Components {
         "post": Single;
     }
     interface BhaaFooter {
-        "query": Template.Query;
+        "query": Query<Template>;
         "theme": Theme;
     }
     interface BhaaGridReveal {
     }
     interface BhaaHeader {
-        "query": Template.Query;
+        "query": Query<Template>;
         "theme": Theme;
     }
     interface BhaaHeartHerald {
@@ -185,7 +185,7 @@ declare namespace LocalJSX {
     interface Bhaa404 {
     }
     interface BhaaApp {
-        "query"?: Template.Query;
+        "query"?: Query<Template>;
         "theme"?: Theme;
     }
     interface BhaaExpandingCopy {
@@ -193,13 +193,13 @@ declare namespace LocalJSX {
         "post"?: Single;
     }
     interface BhaaFooter {
-        "query"?: Template.Query;
+        "query"?: Query<Template>;
         "theme"?: Theme;
     }
     interface BhaaGridReveal {
     }
     interface BhaaHeader {
-        "query"?: Template.Query;
+        "query"?: Query<Template>;
         "theme"?: Theme;
     }
     interface BhaaHeartHerald {

@@ -8,4 +8,4 @@ COPY provision-ssl.sh /usr/src/provision-ssl.sh
 RUN chmod +x /usr/src/provision-ssl.sh
 
 CMD /usr/src/provision-ssl.sh $SITE_URL \
-&& nginx -g "daemon off;"
+    && nginx -g "daemon off;"

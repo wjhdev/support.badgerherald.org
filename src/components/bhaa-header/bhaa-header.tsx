@@ -1,5 +1,5 @@
 import { Component, h, Prop } from '@stencil/core'
-import { Theme, Template } from '@webpress/core'
+import { Theme, Template, Query } from '@webpress/core'
 import '@webpress/theme'
 
 @Component({
@@ -8,7 +8,7 @@ import '@webpress/theme'
 })
 export class BHAAHeader {
   @Prop() theme: Theme
-  @Prop() query: Template.Query
+  @Prop() query: Query<Template>
 
   render() {
     return (

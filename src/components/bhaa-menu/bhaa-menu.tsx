@@ -1,5 +1,5 @@
 import { Component, h, Host, Prop, State } from '@stencil/core'
-import { Theme, Menu } from '@webpress/core'
+import { Theme, Menu, Query } from '@webpress/core'
 import '@webpress/theme'
 
 @Component({
@@ -42,7 +42,14 @@ export class BHAAMenu {
         </a>
         <wp-menu
           class={'toggleable' + this.toggleClass}
-          query={this.theme.getMenu('main')}
+          query={
+            new Query<Menu>(
+              this.theme.connection,
+              Menu.QueryArgs({
+                location: 'main',
+              }),
+            )
+          }
           options={{
             classForMenuItem: item => (item.title === 'Donate' ? 'donate' : ''),
             domForItem: null,

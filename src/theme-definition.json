@@ -2,13 +2,15 @@
     "name": "Webpress",
     "folder": "webpress",
     "root": "bhaa-app",
-    "menus" : [
-        "main", 
-        "secondary"
-    ],
-    "sidebar" : [
+    "menus": [
         {
-            "name" : "Main Sidebar",
+            "location": "main",
+            "description": "Main Sidebar Menu"
+        }
+    ],
+    "sidebar": [
+        {
+            "name": "Main Sidebar",
             "id": "sidebar-main",
             "description": "The main sidebar for the WebPress starter theme"
         }

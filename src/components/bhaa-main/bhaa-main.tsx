@@ -21,48 +21,42 @@ export class BhaaMain {
 
   async componentDidLoad() {
     if (!this.query) {
-      return
+      return 'nope'
     }
+
     if (!this.about) {
-      this.about = (
-        await this.query.connection.request(
-          new PageQueryArgs({
-            slug: 'about',
-          }),
-        )
-      )[0]
-      this.store = (
-        await this.query.connection.request(
-          new PageQueryArgs({
-            slug: 'store',
-          }),
-        )
-      )[0]
-      this.updates = (
-        await this.query.connection.request(
-          new PageQueryArgs({
-            slug: 'updates',
-          }),
-        )
-      )[0]
-      this.newsletter = (
-        await this.query.connection.request(
-          new PageQueryArgs({
-            slug: 'newsletter',
-          }),
-        )
-      )[0]
+      this.about = await new Query(
+        this.query.connection,
+        new PageQueryArgs({
+          slug: 'about',
+        }),
+      ).result
+
+      this.store = await new Query(
+        this.query.connection,
+        new PageQueryArgs({
+          slug: 'store',
+        }),
+      ).result
+
+      this.updates = await new Query(
+        this.query.connection,
+        new PageQueryArgs({
+          slug: 'updates',
+        }),
+      ).result
+
+      this.newsletter = await new Query(
+        this.query.connection,
+        new PageQueryArgs({
+          slug: 'newsletter',
+        }),
+      ).result
+
       this.posts = await new Query<Post>(
         this.query.connection,
         Post.QueryArgs({}),
       ).results
-      this.newsletter = (
-        await this.query.connection.request(
-          new PageQueryArgs({
-            slug: 'newsletter',
-          }),
-        )
-      )[0]
     }
   }
 

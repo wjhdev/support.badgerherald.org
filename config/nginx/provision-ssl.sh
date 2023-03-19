@@ -36,8 +36,8 @@ ST=WI
 O=localhost
 localityName=Madison
 commonName=$DOMAIN
-organizationalUnitName=The Badger Herald
-emailAddress=wjh@wjh.dev
+organizationalUnitName=The Badger Herald Alumni Association
+emailAddress=alumni@badgerherald.com
 "
 
 # Generate the server private key

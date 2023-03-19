@@ -1,7 +1,6 @@
 import { Component, h, Prop } from '@stencil/core'
-import { Theme, Template } from '@webpress/core'
-import '@webpress/router'
 import { Hierarchy } from '@webpress/router'
+import { Theme, Template, Query } from '@webpress/core'
 
 @Component({
   tag: 'bhaa-app',
@@ -9,13 +8,16 @@ import { Hierarchy } from '@webpress/router'
 })
 export class BadgerHeraldAlumniAssociation {
   @Prop() theme: Theme
-  @Prop() query: Template.Query
+  @Prop() query: Query<Template>
 
   render() {
-    console.log(this.query.template)
     let hiearchy: Hierarchy.TemplateHierarchy = {
-      index: 'bhaa-main',
-      frontPage: 'bhaa-main',
+      index: {
+        component: 'bhaa-main',
+      },
+      frontPage: {
+        component: 'bhaa-main',
+      },
       archive: {
         component: 'bhaa-main',
         props: {
@@ -23,7 +25,9 @@ export class BadgerHeraldAlumniAssociation {
         },
       },
       singular: {
-        index: 'bhaa-post',
+        index: {
+          component: 'bhaa-post',
+        },
         slug: {
           store: {
             component: 'bhaa-main',
