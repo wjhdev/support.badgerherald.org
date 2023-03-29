@@ -24,12 +24,7 @@ body {
 }
 
 @function containerWidth($cols, $additionalGutter: 0) {
-  $gutter: '';
-  @if type-of($cols) == number {
-    $gutter: '\(#{math.round($cols)} - 1 + #{$additionalGutter}\)';
-  } @else {
-    $gutter: '\(#{$cols} - 1 + #{$additionalGutter}\)';
-  }
+  $gutter: '\(#{$cols} - 1 + #{$additionalGutter}\)';
   @return '\(#{columnWidths($cols)} + #{gutterWidths(#{$gutter})}\)';
 }
 
@@ -67,7 +62,7 @@ body {
 }
 
 @mixin resetCol() {
-  & *,
+  & > *,
   &:after,
   &:before {
     --breakpointColumns: unset;

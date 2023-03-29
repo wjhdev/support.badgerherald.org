@@ -5,7 +5,7 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { Post, Query, Single, Template, Theme } from "@webpress/core";
+import { Page, Post, Query, Single, Template, Theme } from "@webpress/core";
 export namespace Components {
     interface Bhaa404 {
     }
@@ -42,7 +42,7 @@ export namespace Components {
         "theme": Theme;
     }
     interface BhaaPage {
-        "query": Query<Post>;
+        "query": Query<Page>;
     }
     interface BhaaPost {
         "query": Query<Post>;
@@ -217,7 +217,7 @@ declare namespace LocalJSX {
         "theme"?: Theme;
     }
     interface BhaaPage {
-        "query"?: Query<Post>;
+        "query"?: Query<Page>;
     }
     interface BhaaPost {
         "query"?: Query<Post>;

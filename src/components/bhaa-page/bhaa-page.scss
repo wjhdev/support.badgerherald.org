@@ -1,0 +1,24 @@
+bhaa-page {
+  span.meta {
+    position: absolute;
+    top: baseline(1);
+    line-height: baseline(0);
+    font-size: size(2.75);
+    font-weight: 400;
+    &::after {
+      left: 0;
+      content: '';
+      display: inline-block;
+      width: col(1);
+      height: 3pt;
+      background-color: white;
+      position: absolute;
+      top: baseline(3);
+    }
+    wp-author {
+      font-weight: 600;
+    }
+    color: white;
+  }
+  @include ShadowedGutenbergStyles();
+}

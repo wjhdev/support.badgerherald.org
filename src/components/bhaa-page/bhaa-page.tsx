@@ -1,38 +1,43 @@
-import { Component, h, Prop, State } from "@stencil/core";
-import { Query, Post, Author } from "@webpress/core";
+import { Component, h, Prop, State } from '@stencil/core'
+import { Query, Page, Author } from '@webpress/core'
 
 @Component({
-  tag: "bhaa-page",
-  styleUrl: "bhaa-page.scss",
+  tag: 'bhaa-page',
+  styleUrl: 'bhaa-page.scss',
 })
 export class BhaaPage {
-  @Prop() query: Query<Post>;
-  @State() post: Post;
-  @State() author: Author;
+  @Prop() query: Query<Page>
+  @State() page: Page
+  @State() author: Author
 
   async componentWillRender() {
     if (!this.query) {
-      return;
+      return
     }
-    this.post = (await this.query.result)[0];
+
+    this.page = await this.query.result
   }
 
   render() {
-    if (!this.post) {
-      return;
+    if (!this.page) {
+      return
     }
-    if (this.post.title == "Donate") {
-      return <bhaa-donate post={this.post}></bhaa-donate>;
+    if (this.page.title == 'Donate') {
+      return <bhaa-donate post={this.page}></bhaa-donate>
     }
     return (
-      <bhaa-wrapper>
-        <div class="right center">
-          <wp-title post={this.post}></wp-title>
-          <wp-author author={this.author} />
-          <wp-running-copy post={this.post}></wp-running-copy>
-          <div style={{ clear: "both" }} />
-        </div>
-      </bhaa-wrapper>
-    );
+      <bhaa-main-section>
+        <bhaa-post-breadcrumbs post={this.page} title="Updates" />
+        <span class="meta">
+          Published <wp-date post={this.page} />
+          {this.page.modified.getTime() > this.page.date.getTime()
+            ? ['. Last Updated ', <wp-modified post={this.page} />]
+            : ''}
+        </span>
+        <wp-title post={this.page} />
+        <wp-running-copy post={this.page}></wp-running-copy>
+        <div style={{ clear: 'both' }} />
+      </bhaa-main-section>
+    )
   }
 }

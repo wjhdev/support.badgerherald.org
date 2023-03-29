@@ -1,0 +1,54 @@
+@import 'variables';
+@import 'grid';
+
+@mixin ShadowedPageStyles() {
+  background: $supportBlue;
+  font-family: $body;
+  font-style: normal;
+  font-weight: 500;
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: $headline;
+    font-style: normal;
+    font-weight: 700;
+  }
+
+  h1 {
+    color: white;
+  }
+
+  h2 {
+    color: white;
+    font-weight: normal;
+  }
+
+  p {
+    line-height: baseline(6);
+    font-size: size(3);
+    font-family: $body;
+  }
+
+  wp-running-copy {
+    margin-top: 18px;
+    line-height: baseline(6);
+    p,
+    img {
+      font-size: size(3);
+      margin: 0 0 18px;
+    }
+
+    ul,
+    ol {
+      line-height: baseline(6);
+      font-size: size(3);
+      margin-left: 40px;
+      li {
+        margin-bottom: 12px;
+      }
+    }
+  }
+}

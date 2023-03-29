@@ -1,14 +1,8 @@
-@import 'grid.scss';
-@import 'baseline.scss';
-
-$supportBlue: #5eb5f7;
-$actionRed: #c90424;
-
-$colWidth: 94;
-$gutterWidth: 16;
-
-$headline: "Sentinel SSm A", "Sentinel SSm B";
-$body: "Ideal Sans A", "Ideal Sans B";
+@use 'sass:math';
+@import 'variables';
+@import 'baseline';
+@import 'single';
+@import 'page';
 
 @function pageWidth($cols: 1, $additionalGutter: 0) {
   @return (

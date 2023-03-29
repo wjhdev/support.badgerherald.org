@@ -25,20 +25,25 @@ export class BadgerHeraldAlumniAssociation {
         },
       },
       singular: {
-        index: {
+        post: {
           component: 'bhaa-post',
         },
-        slug: {
-          store: {
-            component: 'bhaa-main',
-            props: {
-              slug: 'store',
-            },
+        page: {
+          index: {
+            component: 'bhaa-page',
           },
-          newsletter: {
-            component: 'bhaa-main',
-            props: {
-              slug: 'newsletter',
+          slug: {
+            store: {
+              component: 'bhaa-main',
+              props: {
+                slug: 'store',
+              },
+            },
+            newsletter: {
+              component: 'bhaa-main',
+              props: {
+                slug: 'newsletter',
+              },
             },
           },
         },

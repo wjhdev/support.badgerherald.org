@@ -1,5 +1,25 @@
 <?php
 
+function bhaa_setup()
+{
+    /* Register different size thumbnail images */
+    add_theme_support('post-thumbnails');
+    add_theme_support('editor-styles');
+
+    /* Include custom editor styles, so the backend looks like
+	 * the front end. */
+    add_editor_style('editor-style.css');
+
+    add_theme_support('post-thumbnails');
+}
+add_action('after_setup_theme', 'bhaa_setup');
+add_action('init', 'bhaa_setup');
+
+function bhaa_admin_typography()
+{
+    echo '<link rel="stylesheet" type="text/css" href="https://cloud.typography.com/7844898/6540412/css/fonts.css" />';
+}
+add_action('admin_head', 'bhaa_admin_typography');
 
 /**
  * Register an oembed for amazon product links
@@ -7,12 +27,13 @@
  * Direct link: 
  * https://www.amazon.com/gp/product/1610393384/ref=as_li_qf_asin_il_tl?ie=UTF8&tag=bhaa69-20&creative=9325&linkCode=as2&creativeASIN=1610393384&linkId=4e4341ec2f35d53262da1e82d5b714d0
  */
-function bh_support_amazon_inline_embed( $matches, $attr, $url, $rawattr ) {
-	return "HELLO AMAZON LINK";
+function bh_support_amazon_inline_embed($matches, $attr, $url, $rawattr)
+{
+    return "HELLO AMAZON LINK";
 }
-wp_embed_register_handler( 'exa-inline-link', '*(?:http|https)://amazon.com/*', 'bh_support_amazon_inline_embed' );
+wp_embed_register_handler('exa-inline-link', '*(?:http|https)://amazon.com/*', 'bh_support_amazon_inline_embed');
 
-remove_filter('template_redirect','redirect_canonical');
+remove_filter('template_redirect', 'redirect_canonical');
 
 /*
 
