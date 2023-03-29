@@ -30,6 +30,7 @@ bhaa-header {
     display: block;
     @include breakpoint('tablet') {
       padding: 0;
+      padding-right: gutter(1);
       margin: 0;
       position: absolute;
       top: baseline(16);
@@ -43,7 +44,7 @@ bhaa-header {
     @include breakpoint('tablet') {
       margin: 0;
       position: absolute;
-      top: baseline(42);
+      top: baseline(46);
     }
     @include breakpoint('xl') {
       top: baseline(54);
@@ -86,15 +87,13 @@ bhaa-header {
   background: #262626;
   header {
     color: #e3ecf3;
-    color: $supportBlue;
     h1 {
-      font-size: size(3.75);
+      font-size: size(3.5);
       line-height: baseline(6);
       font-weight: 500;
       letter-spacing: -0.2;
       margin-top: baseline(4);
-      padding-left: gutter(1);
-      padding-bottom: baseline(2);
+
       @include breakpoint('mobilexl') {
         padding-left: col(0.25, 2);
       }
