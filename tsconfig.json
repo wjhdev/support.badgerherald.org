@@ -4,10 +4,7 @@
     "allowUnreachableCode": false,
     "declaration": false,
     "experimentalDecorators": true,
-    "lib": [
-      "dom",
-      "es2017"
-    ],
+    "lib": ["dom", "es2017"],
     "moduleResolution": "node",
     "module": "esnext",
     "target": "es2017",
@@ -16,11 +13,12 @@
     "jsx": "react",
     "jsxFactory": "h"
   },
-  "plugins": [{ "transform": "@zerollup/ts-transform-paths" }],
-  "include": [
-    "src"
+  "plugins": [
+    {
+      "transform": "@zerollup/ts-transform-paths",
+      "name": "typescript-stencil-plugin"
+    }
   ],
-  "exclude": [
-    "node_modules"
-  ]
+  "include": ["src"],
+  "exclude": ["node_modules"]
 }
