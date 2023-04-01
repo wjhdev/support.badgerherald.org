@@ -19,7 +19,9 @@ export class BhaaQzip {
       storefrontAccessToken: '646756802c54f105cdf0f9958ba72969',
     })
     this.ui = ShopifyBuy.UI.init(this.client)
+    this.shopifyBuyInit()
   }
+
   render() {
     if (this.image) {
       return [
@@ -29,10 +31,6 @@ export class BhaaQzip {
     } else {
       return <div id="product-component-1635619604428" class="button" />
     }
-  }
-
-  componentDidLoad() {
-    this.shopifyBuyInit()
   }
 
   async componentDidRender() {
