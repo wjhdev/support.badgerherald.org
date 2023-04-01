@@ -46,16 +46,69 @@ add_filter("webpress_preloaded", function ($array) {
 
     if ($path) {
         $request['path']  = $path;
-        $array["/webpress/v1/template?path=%2F" . $path . "%2F"] = json_encode(webpress_template_request($request));
+        $array["/webpress/v1/template?path=%2F" . $path . "%2F"] = wp_json_encode(webpress_template_request($request));
     } else {
         $request['path']  = "/";
-        $array["/webpress/v1/template?path=%2F"] = json_encode(webpress_template_request($request));
+        $array["/webpress/v1/template?path=%2F"] = wp_json_encode(webpress_template_request($request));
     }
 
-
+    if (!$path || $path == "about" || $path == "updates" || $path == "newsletter" || $path == "store") {
+        bhaa_preload_page_slug("about", $array);
+        bhaa_preload_page_slug("updates", $array);
+        bhaa_preload_page_slug("newsletter", $array);
+        bhaa_preload_page_slug("store", $array);
+        bhaa_preload_page(2, $array);
+        bhaa_preload_posts($array);
+    }
     return $array;
 });
 
+function bhaa_preload_posts(&$array)
+{
+    $request = new WP_REST_Request('GET', '/wp/v2/posts');
+    $response = rest_do_request($request);
+    $server = rest_get_server();
+    $data = $server->response_to_data($response, false);
+    $json = wp_json_encode($data);
+    $array['/wp/v2/posts'] = $json;
+}
+
+function bhaa_preload_page($id, &$array)
+{
+    $request = new WP_REST_Request('GET', "/wp/v2/pages/$id");
+    $response = rest_do_request($request);
+    $server = rest_get_server();
+    $data = $server->response_to_data($response, false);
+    $json = wp_json_encode($data);
+    $array["/wp/v2/pages/$id"] = $json;
+}
+
+function bhaa_preload_page_slug($slug, &$array)
+{
+    $request = new WP_REST_Request('GET', '/wp/v2/pages');
+    $request->set_query_params(['slug' => $slug]);
+    $response = rest_do_request($request);
+    $server = rest_get_server();
+    $data = $server->response_to_data($response, false);
+
+    if ($data[0]["featured_media"] != null && $data[0]["featured_media"]  != 0) {
+        bhaa_preload_media($data[0]["featured_media"], $array);
+    }
+    $json = wp_json_encode($data);
+
+    $array["/wp/v2/pages?slug=$slug"] = $json;
+}
+
+function bhaa_preload_media($id, &$array)
+{
+    $request = new WP_REST_Request('GET', "/wp/v2/media/$id");
+    $response = rest_do_request($request);
+    $server = rest_get_server();
+    $data = $server->response_to_data($response, false);
+    $json = wp_json_encode($data);
+
+    $array["/wp/v2/media/$id"] = $json;
+}
 /*
 
 <iframe 
