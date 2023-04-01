@@ -52,99 +52,75 @@ add_filter("webpress_preloaded", function ($array) {
         $array["/webpress/v1/template?path=%2F"] = wp_json_encode(webpress_template_request($request));
     }
 
-    if (!$path || $path == "about" || $path == "updates" || $path == "newsletter" || $path == "store") {
-        bhaa_preload_page_slug("about", $array);
-        bhaa_preload_page_slug("updates", $array);
-        bhaa_preload_page_slug("newsletter", $array);
-        bhaa_preload_page_slug("store", $array);
-        bhaa_preload_page(2, $array);
-        bhaa_preload_posts($array);
+    if ($path && $path == "events" || $path == "get-involved") {
+        bhaa_preload_page_slug($path, $array);
     }
-    return $array;
+
+    $cached_array = [];
+    if (!$path || $path == "about" || $path == "updates" || $path == "newsletter" || $path == "store") {
+        $cached_array = wp_cache_get('bhaa-index-preload', 'webpress');
+        if ($cached_array === false) {
+            $cached_array = [];
+            bhaa_preload_page_slug("about", $cached_array);
+            bhaa_preload_page_slug("updates", $cached_array);
+            bhaa_preload_page_slug("newsletter", $cached_array);
+            bhaa_preload_page_slug("store", $cached_array);
+            bhaa_preload_page(2, $cached_array);
+            bhaa_preload_posts($cached_array);
+            wp_cache_set('bhaa-index-preload', $cached_array, 'webpress', 60 * 60 * 24 * 7);
+        }
+    }
+    return array_merge($array, $cached_array);
 });
 
 function bhaa_preload_posts(&$array)
 {
     $key = '/wp/v2/posts';
-    $cached_data = wp_cache_get($key, 'webpress');
-
-    if ($cached_data === false) {
-        $request = new WP_REST_Request('GET', '/wp/v2/posts');
-        $response = rest_do_request($request);
-        $server = rest_get_server();
-        $data = $server->response_to_data($response, false);
-
-        wp_cache_set($key, $data, 'webpress', 3600); // cache for 1 hour
-        $cached_data = $data;
-    }
-
-    $array[$key] = wp_json_encode($cached_data);
+    $request = new WP_REST_Request('GET', '/wp/v2/posts');
+    $response = rest_do_request($request);
+    $server = rest_get_server();
+    $data = $server->response_to_data($response, false);
+    $array[$key] = wp_json_encode($data);
 }
 
 function bhaa_preload_page($id, &$array)
 {
     $key = "/wp/v2/pages/$id";
-    $cached_data = wp_cache_get($key, 'webpress');
-
-    if ($cached_data === false) {
-        $request = new WP_REST_Request('GET', "/wp/v2/pages/$id");
-        $response = rest_do_request($request);
-        $server = rest_get_server();
-        $data = $server->response_to_data($response, false);
-
-        wp_cache_set($key, $data, 'webpress', 3600); // cache for 1 hour
-        $cached_data = $data;
-    }
-
-    $array[$key] = wp_json_encode($cached_data);
+    $request = new WP_REST_Request('GET', "/wp/v2/pages/$id");
+    $response = rest_do_request($request);
+    $server = rest_get_server();
+    $data = $server->response_to_data($response, false);
+    $array[$key] = wp_json_encode($data);
 }
 
 function bhaa_preload_page_slug($slug, &$array)
 {
     $key = "/wp/v2/pages?slug=$slug";
-    $cached_data = wp_cache_get($key, 'webpress');
-
-    if ($cached_data === false) {
-        $request = new WP_REST_Request('GET', '/wp/v2/pages');
-        $request->set_query_params(['slug' => $slug]);
-        $response = rest_do_request($request);
-        $server = rest_get_server();
-        $data = $server->response_to_data($response, false);
-
-        $cached_data = $data;
-    }
+    $request = new WP_REST_Request('GET', '/wp/v2/pages');
+    $request->set_query_params(['slug' => $slug]);
+    $response = rest_do_request($request);
+    $server = rest_get_server();
+    $data = $server->response_to_data($response, false);
 
     if ($data[0]["featured_media"] != null && $data[0]["featured_media"]  != 0) {
         bhaa_preload_media($data[0]["featured_media"], $array);
     }
 
-    $array[$key] = wp_json_encode($cached_data);
+    $array[$key] = wp_json_encode($data);
 }
 function bhaa_preload_media($id, &$array)
 {
     $key = "/wp/v2/media/$id";
-    $cached_data = wp_cache_get($key, 'webpress');
-    if ($cached_data === false) {
-        $request = new WP_REST_Request('GET', "/wp/v2/media/$id");
-        $response = rest_do_request($request);
-        $server = rest_get_server();
-        $data = $server->response_to_data($response, false);
-
-        wp_cache_set($key, $data, 'webpress', 3600); // cache for 1 hour
-        $cached_data = $data;
-    }
-
-    $array[$key] = wp_json_encode($cached_data);
+    $request = new WP_REST_Request('GET', "/wp/v2/media/$id");
+    $response = rest_do_request($request);
+    $server = rest_get_server();
+    $data = $server->response_to_data($response, false);
+    $array[$key] = wp_json_encode($data);
 }
 
 function bust_redis_cache_on_database_change()
 {
-    wp_cache_delete('/wp/v2/posts', 'webpress');
-    wp_cache_delete("/wp/v2/pages?slug=about", 'webpress');
-    wp_cache_delete("/wp/v2/pages/2", 'webpress');
-    wp_cache_delete("/wp/v2/pages?slug=updates", 'webpress');
-    wp_cache_delete("/wp/v2/pages?slug=newsletter", 'webpress');
-    wp_cache_delete("/wp/v2/pages?slug=store", 'webpress');
+    wp_cache_delete('bhaa-index-preload', 'webpress');
 }
 add_action('save_post', 'bust_redis_cache_on_database_change');
 /*
