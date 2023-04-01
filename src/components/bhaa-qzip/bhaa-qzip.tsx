@@ -10,6 +10,8 @@ export class BhaaQzip {
   private client: ShopifyBuy.Client
   private ui: ShopifyBuy.UI
 
+  private host = (<div id="product-component-1635619604428" class="button" />)
+
   @Prop() post: Single
   @State() image: Media
 
@@ -24,12 +26,9 @@ export class BhaaQzip {
 
   render() {
     if (this.image) {
-      return [
-        <wp-media media={this.image} />,
-        <div id="product-component-1635619604428" class="button" />,
-      ]
+      return [<wp-media media={this.image} />, this.host]
     } else {
-      return <div id="product-component-1635619604428" class="button" />
+      return this.host
     }
   }
 
@@ -42,7 +41,7 @@ export class BhaaQzip {
   shopifyBuyInit() {
     this.ui.createComponent('product', {
       id: '6599592181921',
-      node: document.getElementById('product-component-1635619604428'),
+      node: this.host,
       moneyFormat: '${{ amount_no_decimals }}',
       options: {
         product: {
