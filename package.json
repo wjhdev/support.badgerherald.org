@@ -33,11 +33,12 @@
     "@webpress/features": "0.0.34",
     "@webpress/router": "0.0.34",
     "@webpress/theme": "0.0.34",
-    "prettier": "2.3.1",
-    "shopify-buy": "^2.13.0"
+    "prettier": "2.3.1"
   },
   "dependencies": {
+    "@shopify/buy-button-js": "^2.2.1",
     "node-sass": "^8.0.0",
-    "sass-build": "^1.1.5"
+    "sass-build": "^1.1.5",
+    "shopify-buy": "^2.13.0"
   }
 }
