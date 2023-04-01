@@ -35,6 +35,27 @@ wp_embed_register_handler('exa-inline-link', '*(?:http|https)://amazon.com/*', '
 
 remove_filter('template_redirect', 'redirect_canonical');
 
+
+/**
+ * Pre-load menus defined in theme-definition.json
+ */
+add_filter("webpress_preloaded", function ($array) {
+    global $wp;
+
+    $path = $wp->request;
+
+    if ($path) {
+        $request['path']  = $path;
+        $array["/webpress/v1/template?path=%2F" . $path . "%2F"] = json_encode(webpress_template_request($request));
+    } else {
+        $request['path']  = "/";
+        $array["/webpress/v1/template?path=%2F"] = json_encode(webpress_template_request($request));
+    }
+
+
+    return $array;
+});
+
 /*
 
 <iframe 
