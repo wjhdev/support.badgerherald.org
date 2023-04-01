@@ -1,4 +1,4 @@
-import { Component, h, State } from '@stencil/core'
+import { Component, h } from '@stencil/core'
 
 declare const ShopifyBuy
 
@@ -12,25 +12,8 @@ export class Thing {
 
   private client: ShopifyBuy.Client
 
-  @State() isLoading: boolean = true
-
   render() {
-    console.log('RENDERING', this.isLoading)
-    return [
-      <div id="product-component-1635619604428"></div>,
-      <bhaa-loading-spinner />,
-    ]
-  }
-
-  loadScript() {
-    var script = document.createElement('script')
-    script.async = true
-    script.src = this.scriptURL
-    ;(
-      document.getElementsByTagName('head')[0] ||
-      document.getElementsByTagName('body')[0]
-    ).appendChild(script)
-    script.onload = this.shopifyBuyInit
+    return <div id="product-component-1635619604428" />
   }
 
   componentDidLoad() {
@@ -46,22 +29,30 @@ export class Thing {
     }
   }
 
+  loadScript() {
+    var script = document.createElement('script')
+    script.async = true
+    script.src = this.scriptURL
+    ;(
+      document.getElementsByTagName('head')[0] ||
+      document.getElementsByTagName('body')[0]
+    ).appendChild(script)
+    script.onload = this.shopifyBuyInit
+  }
+
   shopifyBuyInit() {
     this.client = ShopifyBuy.buildClient({
       domain: 'store.badgerherald.org',
       storefrontAccessToken: '646756802c54f105cdf0f9958ba72969',
     })
     let callback = function (ui) {
-      console.log(ui)
-      console.log('FALSE NOW', this)
-      this.isLoading = false
       ui.createComponent('product', {
         id: '6599592181921',
         node: document.getElementById('product-component-1635619604428'),
         moneyFormat: '${{ amount_no_decimals }}',
         options: {
           product: {
-            /* iframe: false, */
+            iframe: true,
             styles: {
               product: {
                 '@media (min-width: 400px)': {
@@ -109,7 +100,7 @@ export class Thing {
             text: {
               button: 'Add to cart',
             },
-            googleFonts: ['Roboto:wght@900'],
+            googleFonts: [],
           },
           productSet: {
             styles: {

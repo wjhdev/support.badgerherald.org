@@ -2,6 +2,10 @@ body {
   @include ShadowedPageStyles();
 }
 
+::selection {
+  background-color: rgba($actionRed, 0.4);
+}
+
 #mc_embed_signup {
   background: #55acee;
   padding: 20px;
