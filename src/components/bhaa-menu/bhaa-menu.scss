@@ -1,12 +1,8 @@
 // Styling—
 bhaa-menu {
   menu {
-    bottom: 0;
-    list-style-type: none;
     font-family: $body;
-    left: 0;
-    width: col(2.25, 1);
-    padding-left: gutter();
+    width: 100%;
     li {
       border-top: 1px solid rgba(white, 0.3);
       width: 100%;
@@ -20,7 +16,7 @@ bhaa-menu {
         display: block;
         line-height: baseline(5);
         font-size: size(3);
-        padding: baseline(1) gutter();
+        padding: baseline(1);
         @include breakpoint('tablet') {
           padding: baseline(1) 0;
         }
