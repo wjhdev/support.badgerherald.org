@@ -1,0 +1,18 @@
+@mixin button($background, $hover) {
+  text-align: center;
+  display: inline-block;
+  background-color: $background;
+  text-decoration: none;
+  font-family: $body;
+  font-weight: 500;
+  font-size: size(2.75);
+  color: white;
+  padding: baseline(2) gutter();
+  border-radius: 3px;
+  &:hover {
+    background-color: $hover;
+  }
+  @include breakpoint('mobilexl') {
+    padding: baseline(1) gutter();
+  }
+}

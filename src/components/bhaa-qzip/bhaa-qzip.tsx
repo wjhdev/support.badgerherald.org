@@ -1,19 +1,36 @@
-import { Component, h } from '@stencil/core'
+import { Component, h, Prop, State } from '@stencil/core'
+import { Media, Single } from '@webpress/core'
 import * as ShopifyBuy from '@shopify/buy-button-js'
 
 @Component({
   tag: 'bhaa-qzip',
   styleUrl: 'bhaa-qzip.scss',
 })
-export class Thing {
+export class BhaaQzip {
   private client: ShopifyBuy.Client
 
+  @Prop() post: Single
+  @State() image: Media
+
   render() {
-    return <div id="product-component-1635619604428" />
+    if (this.image) {
+      return [
+        <wp-media media={this.image} />,
+        <div id="product-component-1635619604428" class="button" />,
+      ]
+    } else {
+      return <div id="product-component-1635619604428" class="button" />
+    }
   }
 
   componentDidLoad() {
     this.shopifyBuyInit()
+  }
+
+  async componentDidRender() {
+    if (this.post != null && this.image == null) {
+      this.image = await this.post.featuredMedia
+    }
   }
 
   shopifyBuyInit() {
@@ -28,159 +45,19 @@ export class Thing {
       moneyFormat: '${{ amount_no_decimals }}',
       options: {
         product: {
-          iframe: true,
-          styles: {
-            product: {
-              '@media (min-width: 400px)': {
-                'max-width': '100%',
-                'margin-left': '0',
-                'margin-bottom': '0',
-              },
-            },
-            button: {
-              'font-family': 'Roboto, sans-serif',
-              'font-weight': '600',
-              'font-size': '16pt',
-              'line-height': '18pt',
-              'padding-top': '9pt',
-              'padding-bottom': '7pt',
-              ':hover': {
-                'background-color': '#1f93bd',
-              },
-              'background-color': 'black',
-              ':focus': {
-                'background-color': '#1f93bd',
-              },
-              'border-radius': '4px',
-              'text-align': 'center',
-              'width': '100%',
-            },
-            price: {
-              'font-size': '24px',
-              'color': 'black',
-              'font-weight': 'bold',
-            },
-            compareAt: {
-              'font-size': '15.299999999999999px',
-            },
-            unitPrice: {
-              'font-size': '15.299999999999999px',
-            },
-          },
-          layout: 'horizontal',
+          iframe: false,
+          layout: 'vertical',
           contents: {
-            img: true,
+            img: false,
             title: false,
             price: true,
           },
           text: {
             button: 'Add to cart',
           },
-          googleFonts: [],
-        },
-        productSet: {
-          styles: {
-            products: {
-              '@media (min-width: 401px)': {
-                'margin-left': '-20px',
-              },
-            },
-          },
-        },
-        modalProduct: {
-          contents: {
-            img: false,
-            imgWithCarousel: true,
-            button: false,
-            buttonWithQuantity: true,
-          },
-          styles: {
-            product: {
-              '@media (min-width: 400px)': {
-                'max-width': '100%',
-                'margin-left': '0px',
-                'margin-bottom': '0px',
-              },
-            },
-            button: {
-              'font-family': 'Arvo, serif',
-              'font-weight': 'bold',
-              'font-size': '17px',
-              'padding-top': '16.5px',
-              'padding-bottom': '16.5px',
-              ':hover': {
-                'background-color': '#1f93bd',
-              },
-              'background-color': '#22a3d2',
-              ':focus': {
-                'background-color': '#1f93bd',
-              },
-              'border-radius': '4px',
-              'padding-left': '89px',
-              'padding-right': '89px',
-            },
-            quantityInput: {
-              'font-size': '17px',
-              'padding-top': '16.5px',
-              'padding-bottom': '16.5px',
-            },
-          },
-          googleFonts: ['Arvo'],
-          text: {
-            button: 'Add to cart',
-          },
-        },
-        option: {
-          styles: {
-            label: {
-              'font-size': '16pt',
-              'font-family': 'Roboto, sans-serif',
-              'font-weight': '900',
-            },
-            select: {
-              'font-size': '16pt',
-              'font-family': 'Roboto, sans-serif',
-              'font-weight': '900',
-            },
-          },
         },
         cart: {
-          styles: {
-            button: {
-              'font-family': 'Roboto, serif',
-              'font-weight': '900',
-              'font-size': '22px',
-              'padding-top': '14px',
-              'padding-bottom': '14px',
-              ':hover': {
-                'background-color': '#1f93bd',
-              },
-              'background-color': '#22a3d2',
-              ':focus': {
-                'background-color': '#1f93bd',
-              },
-              'border-radius': '4px',
-            },
-            title: {
-              'font-family': 'Roboto, serif',
-              'font-weight': '900',
-              'font-size': '22px',
-              'color': 'black',
-            },
-            notice: {
-              'font-family': 'Roboto, serif',
-              'font-weight': '900',
-              'font-size': '14px',
-              'color': 'darkgrey',
-            },
-            footer: {
-              'font-family': 'Roboto, serif',
-              'font-weight': '900',
-              'font-size': '20px',
-              'color': 'black',
-            },
-            lineItem: {},
-          },
+          iframe: true,
           text: {
             total: 'Total',
             button: 'Checkout',
@@ -188,38 +65,15 @@ export class Thing {
               'Herald Staff & Contributors: Check Slack for discount codes. Code can be applied at checkout. All discounted apparel will be delivered to the Office.',
           },
           popup: false,
-          googleFonts: ['Roboto:wght@900'],
         },
-        lineItem: {
-          googleFonts: ['Roboto:wght@900'],
-          styles: {
-            itemTitle: {
-              'font-family': 'Roboto, serif',
-              'font-weight': '900',
-              'font-size': '20px',
-              'color': 'black',
-            },
-            price: {
-              'font-family': 'Roboto, serif',
-              'font-weight': '900',
-              'font-size': '20px',
-              'color': 'black',
-            },
-            variantTitle: {
-              'font-family': 'Roboto, serif',
-              'font-weight': '900',
-              'font-size': '16px',
-              'color': 'black',
-            },
-          },
-        },
+        lineItem: {},
         toggle: {
           iframe: false,
           text: { title: 'Cart' },
           content: {
             count: true,
             icon: true,
-            title: true,
+            title: false,
           },
         },
       },

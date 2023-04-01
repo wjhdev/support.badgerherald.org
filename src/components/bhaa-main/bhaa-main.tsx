@@ -106,7 +106,7 @@ export class BhaaMain {
       <bhaa-main-section ref={el => (this.storeEl = el)}>
         <wp-title class="left absolute" post={this.store} el="h1" />
         <wp-running-copy class="right margin" post={this.store} />
-        <bhaa-qzip />
+        <bhaa-qzip post={this.store} />
       </bhaa-main-section>,
     ]
   }

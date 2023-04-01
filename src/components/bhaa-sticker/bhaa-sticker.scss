@@ -23,62 +23,6 @@ bhaa-sticker {
   }
 }
 
-.shopify-buy__cart-toggle {
-  display: block;
-  background-color: #eb4034;
-  color: white;
-  border-radius: 4px;
-  width: 100%;
-  position: relative;
-  padding: baseline(2) gutter();
-  line-height: baseline(4);
-  .shopify-buy__cart-toggle__count {
-    display: none;
-  }
-  & > p.shopify-buy--visually-hidden {
-    position: relative;
-    left: baseline(4);
-    font-family: $body;
-    font-weight: 700;
-    font-size: size(3);
-  }
-  svg {
-    width: baseline(4);
-    position: absolute;
-    left: gutter(0.5);
-    g {
-      fill: white;
-    }
-  }
-}
-
-.shopify-buy-frame--toggle.is-sticky {
-  position: fixed;
-  top: inherit !important;
-  transform: inherit !important;
-  bottom: baseline(2) !important;
-  @include setCol(1, 1);
-
-  margin-right: gutter(1);
-  height: inherit;
-
-  font-size: size(3);
-  right: 0 !important;
-  @include breakpoint('mobilexl') {
-    @include setCol(2, 1);
-  }
-  @include breakpoint('tablet') {
-    @include setCol(2, 1);
-  }
-  @include breakpoint('desktop') {
-    @include setCol(2, 2);
-    padding: gutter(1);
-    bottom: 0 !important;
-    background: #2658db;
-    display: block;
-  }
-}
-
 //Styling—
 bhaa-sticker {
   .banner {
@@ -89,20 +33,19 @@ bhaa-sticker {
   color: white;
   font-family: $headline;
   line-height: baseline(4);
-  a.button {
-    width: col(2);
-    display: inline-block;
-    background-color: $supportBlue;
-    text-decoration: none;
-    font-family: $body;
-    font-weight: 700;
-    font-size: size(3);
-    color: white;
-    padding: baseline(2) gutter();
-
-    border-radius: 3px;
-    &:hover {
-      background-color: #cd1091;
+  a.donate {
+    @include button($supportBlue, $actionRed);
+    @include breakpoint('mobilexl') {
+      position: absolute;
+      right: gutter();
+      top: baseline(2);
+    }
+    @include breakpoint('desktop') {
+      position: relative;
+      right: unset;
+      bottom: 0;
+      width: unset;
+      min-width: col(2);
     }
   }
 
@@ -131,12 +74,6 @@ bhaa-sticker {
     }
     h3 {
       font-size: size(3.5);
-    }
-    a.button {
-      position: absolute;
-      right: gutter();
-      top: baseline(2);
-      width: col(2);
     }
   }
 
@@ -173,12 +110,6 @@ bhaa-sticker {
       font-size: size(4);
       line-height: baseline(5);
       margin-bottom: baseline(4);
-    }
-    a.button {
-      position: relative;
-      right: unset;
-      bottom: 0;
-      width: unset;
     }
   }
 

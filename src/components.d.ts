@@ -51,6 +51,7 @@ export namespace Components {
         "post": Single;
     }
     interface BhaaQzip {
+        "post": Single;
     }
     interface BhaaSticker {
     }
@@ -226,6 +227,7 @@ declare namespace LocalJSX {
         "post"?: Single;
     }
     interface BhaaQzip {
+        "post"?: Single;
     }
     interface BhaaSticker {
     }
