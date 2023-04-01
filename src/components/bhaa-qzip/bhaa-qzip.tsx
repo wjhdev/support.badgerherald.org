@@ -8,9 +8,6 @@ import * as ShopifyBuy from '@shopify/buy-button-js'
 })
 export class BhaaQzip {
   private client: ShopifyBuy.Client
-  private ui: ShopifyBuy.UI
-
-  private host = (<div id="product-component-1635619604428" class="button" />)
 
   @Prop() post: Single
   @State() image: Media
@@ -20,16 +17,20 @@ export class BhaaQzip {
       domain: 'store.badgerherald.org',
       storefrontAccessToken: '646756802c54f105cdf0f9958ba72969',
     })
-    this.ui = ShopifyBuy.UI.init(this.client)
-    this.shopifyBuyInit()
   }
-
   render() {
     if (this.image) {
-      return [<wp-media media={this.image} />, this.host]
+      return [
+        <wp-media media={this.image} />,
+        <div id="product-component-1635619604428" class="button" />,
+      ]
     } else {
-      return this.host
+      return <div id="product-component-1635619604428" class="button" />
     }
+  }
+
+  componentDidLoad() {
+    this.shopifyBuyInit()
   }
 
   async componentDidRender() {
@@ -39,9 +40,10 @@ export class BhaaQzip {
   }
 
   shopifyBuyInit() {
-    this.ui.createComponent('product', {
+    let ui = ShopifyBuy.UI.init(this.client)
+    ui.createComponent('product', {
       id: '6599592181921',
-      node: this.host,
+      node: document.getElementById('product-component-1635619604428'),
       moneyFormat: '${{ amount_no_decimals }}',
       options: {
         product: {
