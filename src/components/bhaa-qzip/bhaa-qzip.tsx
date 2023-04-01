@@ -8,10 +8,18 @@ import * as ShopifyBuy from '@shopify/buy-button-js'
 })
 export class BhaaQzip {
   private client: ShopifyBuy.Client
+  private ui: ShopifyBuy.UI
 
   @Prop() post: Single
   @State() image: Media
 
+  componentWillLoad() {
+    this.client = ShopifyBuy.buildClient({
+      domain: 'store.badgerherald.org',
+      storefrontAccessToken: '646756802c54f105cdf0f9958ba72969',
+    })
+    this.ui = ShopifyBuy.UI.init(this.client)
+  }
   render() {
     if (this.image) {
       return [
@@ -34,12 +42,7 @@ export class BhaaQzip {
   }
 
   shopifyBuyInit() {
-    this.client = ShopifyBuy.buildClient({
-      domain: 'store.badgerherald.org',
-      storefrontAccessToken: '646756802c54f105cdf0f9958ba72969',
-    })
-    let ui = ShopifyBuy.UI.init(this.client)
-    ui.createComponent('product', {
+    this.ui.createComponent('product', {
       id: '6599592181921',
       node: document.getElementById('product-component-1635619604428'),
       moneyFormat: '${{ amount_no_decimals }}',

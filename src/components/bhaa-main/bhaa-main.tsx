@@ -25,38 +25,47 @@ export class BhaaMain {
     }
 
     if (!this.about) {
-      this.about = await new Query(
+      const aboutPromise = new Query(
         this.query.connection,
         new PageQueryArgs({
           slug: 'about',
         }),
       ).result
 
-      this.store = await new Query(
+      const storePromise = new Query(
         this.query.connection,
         new PageQueryArgs({
           slug: 'store',
         }),
       ).result
 
-      this.updates = await new Query(
+      const updatesPromise = new Query(
         this.query.connection,
         new PageQueryArgs({
           slug: 'updates',
         }),
       ).result
 
-      this.newsletter = await new Query(
+      const newsletterPromise = new Query(
         this.query.connection,
         new PageQueryArgs({
           slug: 'newsletter',
         }),
       ).result
 
-      this.posts = await new Query<Post>(
+      const postsPromise = new Query<Post>(
         this.query.connection,
         Post.QueryArgs({}),
       ).results
+
+      ;[this.about, this.store, this.updates, this.newsletter, this.posts] =
+        await Promise.all([
+          aboutPromise,
+          storePromise,
+          updatesPromise,
+          newsletterPromise,
+          postsPromise,
+        ])
     }
   }
 
