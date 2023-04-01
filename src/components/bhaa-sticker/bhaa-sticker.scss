@@ -11,7 +11,7 @@ bhaa-sticker {
   @include breakpoint('desktop') {
     @include setCol(2.5, 1);
     position: fixed;
-    top: baseline(24);
+    top: baseline(14);
     right: gutter();
     bottom: inherit;
     bottom: unset;
@@ -19,7 +19,7 @@ bhaa-sticker {
   @include breakpoint('xl') {
     @include setCol(3, 1);
     position: fixed;
-    top: baseline(32);
+    top: baseline(12);
   }
 }
 
@@ -88,7 +88,6 @@ bhaa-sticker {
   }
   color: white;
   font-family: $headline;
-  font-size: 18px;
   line-height: baseline(4);
   a.button {
     width: col(2);
@@ -153,6 +152,7 @@ bhaa-sticker {
     p {
       font-size: size(2.5);
       width: col(4);
+      margin-bottom: baseline(2);
     }
     h3 {
       font-size: size(3.5);
@@ -166,7 +166,7 @@ bhaa-sticker {
     p {
       font-size: size(2.5);
       line-height: size(4);
-      margin-bottom: baseline(3);
+
       width: 100%;
     }
     h3 {

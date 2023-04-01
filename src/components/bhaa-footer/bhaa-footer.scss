@@ -1,16 +1,30 @@
 bhaa-footer {
-  opacity: .4;
   > div {
     width: 100%;
     background: #262626;
     color: #e3ecf3;
     box-sizing: border-box;
-    padding: 48px 20px 85px;
-    bhaa-heart-herald {
-      padding-right: 6px;
-      position: relative;
-      top: 3px;
+    padding: gutter(1);
+    padding-bottom: baseline(18);
+    @include breakpoint('mobilexl') {
+      padding-bottom: baseline(25);
     }
     position: relative;
+  }
+}
+
+bhaa-footer {
+  @include breakpoint('tablet') {
+    > div {
+      padding-bottom: baseline(4);
+    }
+    @include setCol(2.5);
+    position: fixed;
+    left: 0;
+    bottom: 0;
+  }
+
+  @include breakpoint('desktop') {
+    position: fixed;
   }
 }

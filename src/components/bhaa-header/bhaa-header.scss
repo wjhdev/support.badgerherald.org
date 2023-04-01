@@ -28,15 +28,20 @@ bhaa-header {
   }
   header h1 {
     display: block;
+    padding-left: gutter(1);
+    padding-bottom: baseline(4);
     @include breakpoint('tablet') {
       padding: 0;
-      padding-right: gutter(1);
+      margin-right: col(0.5);
       margin: 0;
       position: absolute;
-      top: baseline(16);
+      top: baseline(4);
+    }
+    @include breakpoint('desktop') {
+      padding-right: gutter(2);
     }
     @include breakpoint('xl') {
-      top: baseline(24);
+      top: baseline(8);
     }
   }
   header wp-menu {
@@ -44,19 +49,20 @@ bhaa-header {
     @include breakpoint('tablet') {
       margin: 0;
       position: absolute;
-      top: baseline(46);
+      padding-right: gutter(1);
+      top: baseline(36);
     }
     @include breakpoint('xl') {
-      top: baseline(54);
+      top: baseline(40);
     }
   }
   header bhaa-heart-herald {
     @include breakpoint('tablet') {
       padding-left: gutter(1);
-      top: baseline(14);
+      top: baseline(2);
     }
     @include breakpoint('xl') {
-      top: baseline(22);
+      top: baseline(6);
     }
   }
 }
