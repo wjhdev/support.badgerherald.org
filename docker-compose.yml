@@ -28,8 +28,6 @@ services:
     container_name: ${COMPOSE_PROJECT_NAME}-wordpress
     links:
       - redis
-    depends_on:
-      - mariadb
     expose:
       - 80
     restart: always
