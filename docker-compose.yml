@@ -12,7 +12,6 @@ services:
       - 443:443
     volumes:
       - support.badgerherald.org-wordpress:/var/www/html
-      - ./${SITE_WP_CONTENT_DIR}:/var/www/html/wp-content/
       - ./${SITE_WP_CONTENT_DIR}/uploads:/var/www/html/wp-content/uploads
     restart: always
     logging:
@@ -36,7 +35,7 @@ services:
         max-file: 10
     volumes:
       - support.badgerherald.org-wordpress:/var/www/html
-      - ./${SITE_WP_CONTENT_DIR}:/var/www/html/wp-content
+      - ./${SITE_WP_CONTENT_DIR}/themes:/var/www/html/wp-content/themes
       - ./${SITE_WP_CONTENT_DIR}/uploads:/var/www/html/wp-content/uploads
       - ./bin/stencil-stats.json:/srv/stencil-stats.json
     environment:
