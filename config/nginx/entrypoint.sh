@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-# Shell script for generating self-signed cert for Vagrant
+# Shell script for generating self-signed cert
 #
 
 
@@ -51,8 +51,18 @@ if [[ $1 =~ \.test$ ]] || [ $1 == "localhost" ]; then
     mv $1.crt $CERT_PATH
     
 else
+    # Start Nginx in the background
+    nginx -g "daemon off;"
+
     echo "Generating LetsEncrypt certificate for $1"
     
     # Generate LetsEncrypt certificate using certbot
     certbot certonly --webroot --webroot-path=/var/www/html -d $1 --non-interactive --agree-tos --email will@broadsheet.technology
+
+    # Set up automatic renewal using a cron job
+    echo "0 3 * * * root certbot renew --quiet --post-hook 'nginx -s reload'" >> /etc/crontab
+    cron
 fi
+
+# Start Nginx in the foreground
+nginx -g "daemon off;"

@@ -8,9 +8,10 @@ RUN apt-get update && \
 WORKDIR /usr/bin/
 
 COPY support.badgerherald.org.conf /etc/nginx/nginx.conf
-COPY provision-ssl.sh /usr/src/provision-ssl.sh
 
-RUN chmod +x /usr/src/provision-ssl.sh
+# Copy the entrypoint script to the container
+COPY entrypoint.sh /entrypoint.sh
+RUN chmod +x /entrypoint.sh
 
-CMD /usr/src/provision-ssl.sh $DOMAIN \
-    && nginx -g "daemon off;"
+# Run the entrypoint script
+CMD /entrypoint.sh $DOMAIN
