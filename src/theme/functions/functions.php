@@ -13,7 +13,6 @@ function bhaa_setup()
     add_theme_support('post-thumbnails');
 }
 add_action('after_setup_theme', 'bhaa_setup');
-add_action('init', 'bhaa_setup');
 
 function bhaa_admin_typography()
 {
