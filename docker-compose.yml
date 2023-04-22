@@ -23,7 +23,7 @@ services:
       DOMAIN: ${SITE_URL}
 
   wordpress:
-    image: ghcr.io/broadsheet-technology/wordpress:0.3
+    image: ghcr.io/broadsheet-technology/wordpress:0.4
     container_name: ${COMPOSE_PROJECT_NAME}-wordpress
     links:
       - redis
