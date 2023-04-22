@@ -29,10 +29,10 @@
     "@stencil/router": "^1.0.1",
     "@stencil/sass": "^3.0.0",
     "@types/shopify-buy": "^2.10.8",
-    "@webpress/core": "0.0.37",
-    "@webpress/features": "0.0.37",
-    "@webpress/router": "0.0.37",
-    "@webpress/theme": "0.0.37",
+    "@webpress/core": "0.0.38",
+    "@webpress/features": "0.0.38",
+    "@webpress/router": "0.0.38",
+    "@webpress/theme": "0.0.38",
     "prettier": "2.3.1"
   },
   "dependencies": {
