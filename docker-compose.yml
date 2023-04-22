@@ -13,6 +13,7 @@ services:
     volumes:
       - support.badgerherald.org-wordpress:/var/www/html
       - ./${SITE_WP_CONTENT_DIR}:/var/www/html/wp-content/
+      - ./${SITE_WP_CONTENT_DIR}/uploads:/var/www/html/wp-content/uploads
     restart: always
     logging:
       options:
@@ -36,6 +37,7 @@ services:
     volumes:
       - support.badgerherald.org-wordpress:/var/www/html
       - ./${SITE_WP_CONTENT_DIR}:/var/www/html/wp-content
+      - ./${SITE_WP_CONTENT_DIR}/uploads:/var/www/html/wp-content/uploads
       - ./bin/stencil-stats.json:/srv/stencil-stats.json
     environment:
       NRIA_LICENSE_KEY: ${NRIA_LICENSE_KEY}
