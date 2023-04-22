@@ -60,21 +60,6 @@ services:
           )
         );
 
-  nr-agent:
-    container_name: ${COMPOSE_PROJECT_NAME}-nr-agent
-    image: newrelic/infrastructure
-    cap_add:
-      - SYS_PTRACE
-    network_mode: host
-    pid: host
-    privileged: true
-    volumes:
-      - "/:/host:ro"
-      - "/var/run/docker.sock:/var/run/docker.sock"
-    restart: unless-stopped
-    environment:
-      - NRIA_LICENSE_KEY=${NRIA_LICENSE_KEY}
-
   redis:
     container_name: ${COMPOSE_PROJECT_NAME}-redis
     command: redis-server --requirepass ${REDIS_PASSWORD}

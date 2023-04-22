@@ -1,5 +1,10 @@
 FROM nginx:latest
 
+# Install certbot
+RUN apt-get update && \
+    apt-get install -y certbot && \
+    rm -rf /var/lib/apt/lists/*
+
 WORKDIR /usr/bin/
 
 COPY support.badgerherald.org.conf /etc/nginx/nginx.conf
@@ -7,5 +12,5 @@ COPY provision-ssl.sh /usr/src/provision-ssl.sh
 
 RUN chmod +x /usr/src/provision-ssl.sh
 
-CMD /usr/src/provision-ssl.sh $SITE_URL \
+CMD /usr/src/provision-ssl.sh $DOMAIN \
     && nginx -g "daemon off;"
