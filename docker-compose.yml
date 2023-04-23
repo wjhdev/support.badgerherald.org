@@ -13,7 +13,6 @@ services:
     volumes:
       - support.badgerherald.org-wordpress:/var/www/html
       - ./bin/fonts:/var/www/html/fonts
-      - ./${SITE_WP_CONTENT_DIR}/themes:/var/www/html/wp-content/themes
       - ./${SITE_WP_CONTENT_DIR}/uploads:/var/www/html/wp-content/uploads
     restart: always
     logging:
@@ -24,7 +23,7 @@ services:
       DOMAIN: ${SITE_URL}
 
   wordpress:
-    image: ghcr.io/broadsheet-technology/wordpress:0.4
+    image: ghcr.io/wjhdev/support-the-herald:latest
     container_name: ${COMPOSE_PROJECT_NAME}-wordpress
     links:
       - redis
@@ -38,9 +37,7 @@ services:
     volumes:
       - support.badgerherald.org-wordpress:/var/www/html
       - ./bin/fonts:/var/www/html/fonts
-      - ./${SITE_WP_CONTENT_DIR}/themes:/var/www/html/wp-content/themes
       - ./${SITE_WP_CONTENT_DIR}/uploads:/var/www/html/wp-content/uploads
-      - ./bin/stencil-stats.json:/srv/stencil-stats.json
     environment:
       NRIA_LICENSE_KEY: ${NRIA_LICENSE_KEY}
       NRIA_APP_NAME: ${SITE_URL}-wordpress\/app
@@ -63,22 +60,7 @@ services:
             'memcached:11211',
           )
         );
-
-  nr-agent:
-    container_name: ${COMPOSE_PROJECT_NAME}-nr-agent
-    image: newrelic/infrastructure
-    cap_add:
-      - SYS_PTRACE
-    network_mode: host
-    pid: host
-    privileged: true
-    volumes:
-      - "/:/host:ro"
-      - "/var/run/docker.sock:/var/run/docker.sock"
-    restart: unless-stopped
-    environment:
-      - NRIA_LICENSE_KEY=${NRIA_LICENSE_KEY}
-
+        
   redis:
     container_name: ${COMPOSE_PROJECT_NAME}-redis
     command: redis-server --requirepass ${REDIS_PASSWORD}
