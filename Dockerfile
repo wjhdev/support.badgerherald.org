@@ -7,6 +7,7 @@ RUN /app/compile.sh
 FROM ghcr.io/broadsheet-technology/wordpress:0.4
 
 LABEL maintainer="Will Haynes <will@broadsheet.technology>"
+LABEL version="1.0"
 LABEL description="Support the Herald!"
 
 COPY --from=compiled-theme /app/dist/wp-content/themes/. /var/www/html/wp-content/themes/.
