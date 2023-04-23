@@ -12,6 +12,7 @@ services:
       - 443:443
     volumes:
       - support.badgerherald.org-wordpress:/var/www/html
+      - ./bin/fonts:/var/www/html/fonts
       - ./${SITE_WP_CONTENT_DIR}/themes:/var/www/html/wp-content/themes
       - ./${SITE_WP_CONTENT_DIR}/uploads:/var/www/html/wp-content/uploads
     restart: always
