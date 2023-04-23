@@ -1,7 +1,7 @@
 {
   "name": "@badgerherald/support-the-herald",
-  "version": "0.0.1",
-  "description": "Webpress Starter",
+  "version": "0.1",
+  "description": "Support the Herald!",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
   "es2015": "dist/esm/index.mjs",
@@ -17,28 +17,21 @@
   "scripts": {
     "build": "stencil build",
     "start": "stencil build --dev --watch --serve",
-    "test": "stencil test --spec --e2e",
-    "test.watch": "stencil test --spec --e2e --watchAll",
     "sass-build": "node-sass ./src/theme/ editor-style.css -o ./src/theme/",
-    "sass-watch": "node-sass ./src/theme/ editor-style.css -w -o ./src/theme/",
-    "generate": "stencil generate"
+    "sass-watch": "node-sass ./src/theme/ editor-style.css -w -o ./src/theme/"
   },
-  "license": "MIT",
+  "license": "GNU GENERAL PUBLIC LICENSE",
   "devDependencies": {
+    "@types/shopify-buy": "^2.10.8",
+    "prettier": "2.3.1",
+    "@shopify/buy-button-js": "^2.2.1",
     "@stencil/core": "^2.10.0",
     "@stencil/router": "^1.0.1",
     "@stencil/sass": "^3.0.0",
-    "@types/shopify-buy": "^2.10.8",
-    "@webpress/core": "0.0.39",
-    "@webpress/features": "0.0.39",
-    "@webpress/router": "0.0.39",
-    "@webpress/theme": "0.0.39",
-    "prettier": "2.3.1"
-  },
-  "dependencies": {
-    "@shopify/buy-button-js": "^2.2.1",
-    "node-sass": "^8.0.0",
-    "sass-build": "^1.1.5",
-    "shopify-buy": "^2.13.0"
+    "@webpress/core": "^0.0.40",
+    "@webpress/features": "^0.0.40",
+    "@webpress/router": "^0.0.40",
+    "@webpress/theme": "^0.0.40",
+    "node-sass": "^8.0.0"
   }
 }
