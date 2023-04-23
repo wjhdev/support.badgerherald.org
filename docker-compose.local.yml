@@ -2,6 +2,9 @@ services:
   wordpress:
     depends_on:
       - mariadb
+    volumes:
+      - ./bin/wp-content/themes/support.badgerherald.org:/var/www/html/wp-content/themes/support.badgerherald.org
+
   mariadb:
     container_name: ${COMPOSE_PROJECT_NAME}-mariadb
     image: mariadb

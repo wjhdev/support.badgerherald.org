@@ -23,8 +23,7 @@ services:
       DOMAIN: ${SITE_URL}
 
   wordpress:
-    build:
-      context: .
+    image: ghcr.io/wjhdev/support-the-herald:latest
     container_name: ${COMPOSE_PROJECT_NAME}-wordpress
     links:
       - redis
