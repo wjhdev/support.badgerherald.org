@@ -1,9 +1,14 @@
 services:
+  nginx:
+    volumes:
+      - ./bin/wp-content/themes:/var/www/html/wp-content/themes
+  
   wordpress:
     depends_on:
       - mariadb
     volumes:
-      - ./bin/wp-content/themes/support.badgerherald.org:/var/www/html/wp-content/themes/support.badgerherald.org
+      - ./bin/stencil-stats.json:/srv/stencil-stats.json
+      - ./bin/wp-content/themes:/var/www/html/wp-content/themes
 
   mariadb:
     container_name: ${COMPOSE_PROJECT_NAME}-mariadb
