@@ -3,6 +3,7 @@ on:
   push:
     branches:
       - master
+      - webpress-build
 
 jobs:
   build-and-publish:
