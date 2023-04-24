@@ -1,4 +1,4 @@
-name: Validate Docker build
+name: Validate
 on:
   push:
     branches:

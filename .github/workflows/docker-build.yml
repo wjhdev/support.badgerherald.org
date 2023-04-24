@@ -1,4 +1,4 @@
-name: Build and Publish Docker Image
+name: Compile webpress & publish Docker image
 on:
   push:
     branches:
@@ -40,7 +40,7 @@ jobs:
             ${{ env.VERSION }}
 
       - name: Compile webpress & build/push Docker image
-        uses: broadsheet.technology/action-webpress-build@test
+        uses: broadsheet-technology/action-webpress-build@test
         with:
           context: .
           push: true
