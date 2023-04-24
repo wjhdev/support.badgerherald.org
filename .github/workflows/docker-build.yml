@@ -40,7 +40,7 @@ jobs:
             ${{ env.VERSION }}
 
       - name: Compile webpress & build/push Docker image
-        uses: broadsheet.technology/action-webpress-build:test
+        uses: broadsheet.technology/action-webpress-build@test
         with:
           context: .
           push: true
