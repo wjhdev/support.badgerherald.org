@@ -19,20 +19,6 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Extract version
-        run: |
-          VERSION=$(grep -E '^LABEL version=' Dockerfile | cut -d '=' -f 2 | tr -d '"')
-          echo "VERSION=$VERSION" >> $GITHUB_ENV
-
-      - name: Extract metadata (tags, labels) for Docker
-        id: meta
-        uses: docker/metadata-action@v4
-        with:
-          images: ghcr.io/wjhdev/support-the-herald
-          tags: |
-            latest
-            ${{ env.VERSION }}
-
       - name: Compile webpress & build/push Docker image
         uses: broadsheet-technology/webpress-compile-build-and-push@test
         with:
