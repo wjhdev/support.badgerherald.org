@@ -1,0 +1,30 @@
+name: Compile webpress & publish Docker image
+
+on:
+  push:
+    branches:
+      - 'master'
+  pull_request:
+    branches:
+      - 'master'
+
+jobs:
+  build-and-publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Login to GitHub Container Registry
+        uses: docker/login-action@65b78e6e13532edd9afa3aa52ac7964289d1a9c1
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Compile webpress & build/push Docker image
+        uses: broadsheet-technology/webpress-compile-build-and-push@test
+        with:
+          context: .
+          push: true
+          name: ghcr.io/wjhdev/support-the-herald
