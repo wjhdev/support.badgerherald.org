@@ -28,3 +28,4 @@ jobs:
           context: .
           push: true
           name: ghcr.io/wjhdev/support-the-herald
+          theme: support.badgerherald.org
