@@ -120,3 +120,25 @@ function bust_redis_cache_on_database_change()
     wp_cache_delete('bhaa-index-preload', 'webpress');
 }
 add_action('save_post', 'bust_redis_cache_on_database_change');
+
+//
+// force enqueue of the script until this can be fixed:
+// https://github.com/badgerherald/donate/issues/6
+//
+function force_enqueue_bhrld_donate_force_enqueue()
+{
+    wp_enqueue_script('donate-stripe-js');
+    wp_enqueue_script('google-recaptcha');
+}
+add_action('wp_enqueue_scripts', 'force_enqueue_bhrld_donate_force_enqueue');
+
+/**
+ * Enable a subset of blocks that are known to work
+ */
+function bhaa_gutenberg_filter_allowed_block_types($allowed_block_types, $post)
+{
+    return array('core/paragraph', 'core/image', 'core/heading', 'core/separator', 'core/shortcode');
+
+    // immediate todos: pullquote, shortcode, gallery, List, etc
+}
+add_filter('allowed_block_types', 'bhaa_gutenberg_filter_allowed_block_types', 11, 2);

@@ -1,6 +1,7 @@
 import { Component, h, Prop } from '@stencil/core'
 import { Hierarchy } from '@webpress/router'
 import { Theme, Template, Query } from '@webpress/core'
+import '@badgerherald/donate'
 
 @Component({
   tag: 'bhaa-app',

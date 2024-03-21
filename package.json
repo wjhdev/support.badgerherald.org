@@ -1,6 +1,6 @@
 {
   "name": "@badgerherald/support-the-herald",
-  "version": "1.2.0",
+  "version": "1.2.2",
   "description": "Support the Herald!",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
@@ -23,9 +23,10 @@
   "license": "GNU GENERAL PUBLIC LICENSE",
   "devDependencies": {
     "@types/shopify-buy": "^2.10.8",
+    "@badgerherald/donate": "^0.1.7",
     "prettier": "2.3.1",
     "@shopify/buy-button-js": "2.4.0",
-    "@stencil/core": "^2.10.0",
+    "@stencil/core": "^2.12.1",
     "@stencil/router": "^1.0.1",
     "@stencil/sass": "^3.0.0",
     "@webpress/core": "^0.0.40",
