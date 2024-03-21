@@ -25,9 +25,9 @@ npm run start
 To run a development WordPress server locally:
 
 1. Copy `dev.env` to `.env`
-2. (optional) If you have a development database, copy it to `/config/sql/install/*.sql`. If you do not have a development database, a new WordPress install will be created instead.
-3. Install [VirtualBox](https://www.virtualbox.org/wiki/Downloads) and [Vagrant](https://www.vagrantup.com/downloads.html), then:
-4. Run
-```
-vagrant up
+2. Install docker
+3. Run:
+
+```bash
+docker-compose up
 ```

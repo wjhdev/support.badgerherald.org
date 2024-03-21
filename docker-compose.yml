@@ -54,6 +54,15 @@ services:
         define('WP_REDIS_HOST', 'redis');
         define('WP_REDIS_PASSWORD', '${REDIS_PASSWORD}' );
         define('WP_CACHE_KEY_SALT', '${SITE_URL}');
+        define('BHRLD_WEBMASTER_EMAIL', '${BHRLD_WEBMASTER_EMAIL}');
+        define('BHRLD_SENDFROM_EMAIL', '${BHRLD_SENDFROM_EMAIL}');
+        define('BHRLD_REPLYTO_EMAIL', '${BHRLD_REPLYTO_EMAIL}');
+        define('STRIPE_PUBLISHABLE_KEY', '${STRIPE_PUBLISHABLE_KEY}');
+        define('STRIPE_SECRET_KEY', '${STRIPE_SECRET_KEY}');
+        define('STRIPE_MONTHLY_PROD', '${STRIPE_MONTHLY_PROD}');
+        define('STRIPE_SEMESTERLY_PROD', '${STRIPE_SEMESTERLY_PROD}');
+        define('RECAPTCHA_SITE_KEY', '${RECAPTCHA_SITE_KEY}');
+        define('RECAPTCHA_SECRET_KEY', '${RECAPTCHA_SECRET_KEY}');
         define('DISABLE_WP_CRON', true);
         $$memcached_servers = array(
           'default' => array(

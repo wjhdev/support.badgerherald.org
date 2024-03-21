@@ -19,6 +19,10 @@ export const config: Config = {
           dest: 'functions.php',
         },
         {
+          src: '../node_modules/@badgerherald/donate/dist/donate/functions',
+          dest: 'etc',
+        },
+        {
           src: '../node_modules/@webpress/core/dist/collection/theme-overlay/etc',
           dest: 'etc',
         },
