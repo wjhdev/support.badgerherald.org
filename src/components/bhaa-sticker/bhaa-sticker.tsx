@@ -16,7 +16,7 @@ export class BHAASticker {
           The Badger Herald depends on community support from sustainers, local
           community advertisers <strong>and alumni like you</strong>!
         </p>
-        <a class="donate" href="https://badgerherald.com/donate">
+        <a class="donate" href="https://support.badgerherald.org/donate">
           Donate
         </a>
       </div>

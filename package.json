@@ -1,6 +1,6 @@
 {
   "name": "@badgerherald/support-the-herald",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "description": "Support the Herald!",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
